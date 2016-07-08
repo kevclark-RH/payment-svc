@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	you under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:cxf="http://camel.apache.org/schema/cxf"
+    xmlns:osgi="http://www.springframework.org/schema/osgi"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd             http://www.springframework.org/schema/beans             http://www.springframework.org/schema/beans/spring-beans.xsd             http://www.springframework.org/schema/osgi             http://www.springframework.org/schema/osgi/spring-osgi.xsd             http://camel.apache.org/schema/cxf             http://camel.apache.org/schema/cxf/camel-cxf-spring.xsd             http://camel.apache.org/schema/spring             http://camel.apache.org/schema/spring/camel-spring.xsd          http://activemq.apache.org/schema/core          http://activemq.apache.org/schema/core/activemq-core.xsd">
+    <bean class="org.apache.camel.processor.interceptor.Tracer" id="camelTracer">
+        <property name="traceExceptions" value="false"/>
+        <property name="traceInterceptors" value="true"/>
+        <property name="logLevel" value="ERROR"/>
+        <property name="logName" value="com.mycompany.messages"/>
+    </bean>
+
+    <bean
+        class="com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider" id="jsonProvider"/>
+    
+    <!-- REST ENPOINT IMPLEMENTATION -->
+    <bean class="com.payment.service.CustomerRestImpl" id="customerRestImplBean"/>
+    <cxf:rsServer address="http://localhost:9191/rest"
+        id="customerRestService" loggingFeatureEnabled="true" serviceClass="com.payment.service.CustomerRestImpl">
+        <cxf:providers>
+            <ref bean="jsonProvider"/>
+        </cxf:providers>
+    </cxf:rsServer>
+    
+    <cxf:rsClient address="http://localhost:9191/rest"
+        id="customerRestServiceClient" loggingFeatureEnabled="true" serviceClass="com.payment.service.CustomerRest">
+        <cxf:providers>
+            <ref bean="jsonProvider"/>
+        </cxf:providers>
+    </cxf:rsClient>
+    
+    
+    <camelContext id="camelContext-20bfdf3f-bb50-4ba3-b48d-7299441206a3"
+        trace="true" xmlns="http://camel.apache.org/schema/spring">
+        
+        
+        <!-- Direct endpoint that packages an exchange and sends it to the cxfrs 
+			client for http packet packaging -->
+        <route id="_route5">
+            <from id="_from5" uri="direct:callRestEndpoint"/>
+            <log id="_log2" message="\n\n\t DIRECT ENDPOINT RECEIVED EXCHANGE:\t ${body.getClass().toString()}\n\tSETTING HEADERS AND FORWARDING FOR CXFRS CLIENT\n"/>
+            <setHeader headerName="Content-Type" id="_setHeader1">
+                <constant>application/json</constant>
+            </setHeader>
+            <setHeader headerName="Accept" id="_setHeader2">
+                <constant>application/json</constant>
+            </setHeader>
+            <setHeader headerName="CamelHTTPMethod" id="_setHeader3">
+                <constant>POST</constant>
+            </setHeader>
+            <setHeader headerName="CamelCxfRsUsingHttpAPI" id="_setHeader5">
+                <constant>True</constant>
+            </setHeader>
+            <choice id="_choice1">
+                <when id="_when_add_request">
+                    <simple>${in.header.type} == 'add'</simple>
+                    <setHeader headerName="CamelHTTPPath" id="_setHeader4">
+                        <constant>/PersonEJB/addCustomer</constant>
+                    </setHeader>
+                </when>
+                <when id="_when_update_request">
+                    <simple>${in.header.type} == 'update'</simple>
+                    <setHeader headerName="CamelHTTPPath" id="_setHeader4">
+                        <constant>/PersonEJB/updateSystemRecordRequest</constant>
+                    </setHeader>
+                </when>
+                <when id="_when_search_request">
+                    <simple>${in.header.type} == 'search'</simple>
+                    <setHeader headerName="CamelHTTPPath" id="_setHeader4">
+                        <constant>/PersonEJB/searchRequest</constant>
+                    </setHeader>
+                </when>
+            </choice>
+            <to id="_to4" uri="cxfrs:bean:customerRestServiceClient"/>
+            <log id="_log6" message="\n\n##\n###\n####\nREST CLIENT MESSAGE SENT \n\t${headers}\n\nbody: \t${in.body}\n"/>
+        </route>
+        
+        <!-- CXFRS server listener that forwards to appropriate Impl method-->
+        <route id="_route1">
+            <from id="_from1" uri="cxfrs:bean:customerRestService?bindingStyle=SimpleConsumer"/>
+            <log id="_log1" message="\n\ngot rest call ${body.toString()}\n\n"/>
+            <bean ref="customerRestImplBean" method="addCustomer"/> <!-- will need choice().when() to invoke the right method -->
+        </route>
+    </camelContext>
+</beans>
