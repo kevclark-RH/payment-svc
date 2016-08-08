@@ -9,13 +9,14 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.AbstractXmlApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.payment.models.Customer;
+import com.sun.mdm.index.webservice.PersonEJB;
 
-public class TestCXFVSSoapComponents  extends CamelSpringTestSupport {
 
-	private Customer testCustomer;
+public class TestCXFEndpoint  extends CamelSpringTestSupport {
 
-    //@Produce(uri = "direct:callCXFEndpointSOAP") private ProducerTemplate soapFactory;
+	private PersonEJB testPerson;
+
+    //@Produce(uri = "direct:callCXFEndpointCXF") private ProducerTemplate cxfFactory;
     
 	
     @Before
@@ -24,14 +25,26 @@ public class TestCXFVSSoapComponents  extends CamelSpringTestSupport {
     	//build test object
     	//need some sort of wsdl object here that we can send
     	
-    	testCustomer = new Customer();
-    	testCustomer.setFirstName("Andy");
-    	testCustomer.setLastName("Reed");
-    	testCustomer.setPhone("3847474789");
-    	testCustomer.setState("Arizona");
-    	testCustomer.setRegion("SW");
-    	testCustomer.setZip("44747");
-    	testCustomer.setCompanyName("AMEX");
+//    	testPerson = new PersonEJB();
+//    	
+//        person= new PersonBean();
+//        sysPerson = new SystemPerson();
+//        
+//        person.setLastName("Williams");
+//        person.setFirstName("Mark");
+//        person.setVetStatus("yes");
+//        person.setBirthOrder("2");
+//        person.setAuthFlag("no");
+//        person.setDegree("bachelors");
+//        person.setGender("male");
+//        
+//        sysPerson.setPerson(person);
+//        sysPerson.setStatus("CRITICAL");
+//        sysPerson.setSystemCode("LZJFDK");
+//        sysPerson.setCreateUser("yes");
+//        sysPerson.setLocalId("1238DFT324");
+//        
+//        exMatch.setSysObjBean(sysPerson);
     }
     
     

@@ -13,6 +13,7 @@
 	xmlns:cxf="http://camel.apache.org/schema/cxf" xmlns:osgi="http://www.springframework.org/schema/osgi"
 	xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd             http://www.springframework.org/schema/beans             http://www.springframework.org/schema/beans/spring-beans.xsd             http://www.springframework.org/schema/osgi             http://www.springframework.org/schema/osgi/spring-osgi.xsd             http://camel.apache.org/schema/cxf             http://camel.apache.org/schema/cxf/camel-cxf-spring.xsd             http://camel.apache.org/schema/spring             http://camel.apache.org/schema/spring/camel-spring.xsd          http://activemq.apache.org/schema/core          http://activemq.apache.org/schema/core/activemq-core.xsd">
+	
 	<bean class="org.apache.camel.processor.interceptor.Tracer" id="camelTracer">
 		<property name="traceExceptions" value="false" />
 		<property name="traceInterceptors" value="true" />
@@ -41,37 +42,6 @@
 			<ref bean="jsonProvider" />
 		</cxf:providers>
 	</cxf:rsClient>
-
-	<route>
-		<from uri="direct:callCXFEndpointCXF" />
-		<to uri="cxf:bean:orderEndpoint" />
-	</route>
-
-	<route>
-		<from uri="direct:callCXFEndpointSOAP" />
-		<marshal>
-			<soapjaxb contentPath="com.sun.mdm.index.webservice.PersonEJBService"
-				version="1.2" elementNameStrategyRef="myNameStrategy" />
-		</marshal>
-		<!-- TODO NOT SURE WHAT TO ENDPOINT TO PUT HERE -->
-		<!-- Potentially mock this and inspect in test -->
-		<to uri="localhost/customer"/>
-	</route>
-
-	<bean id="myNameStrategy"
-		class="org.apache.camel.dataformat.soap.name.ServiceInterfaceStrategy">
-		<constructor-arg value="com.sun.mdm.index.webservice.PersonEJBService" />
-		<constructor-arg value="true" />
-	</bean>
-
-	<route>
-		<from uri="cxf:bean:customerEndpoint" />
-		<!-- Just replying ok -->
-		<transform>
-			<constant>OK</constant>
-		</transform>
-	</route>
-
 
 	<camelContext id="camelContext-20bfdf3f-bb50-4ba3-b48d-7299441206a3"
 		trace="true" xmlns="http://camel.apache.org/schema/spring">

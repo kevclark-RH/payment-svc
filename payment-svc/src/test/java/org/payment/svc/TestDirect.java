@@ -25,24 +25,24 @@ import org.junit.Test;
 
 public class TestDirect extends CamelSpringTestSupport{
 
-	private Customer testCustomer;
+	//private Customer testCustomer;
 	//@EndpointInject(uri = "direct:callRestEndpoint") private MockEndpoint resultEndpoint;
 
-    @Produce(uri = "direct:callRestEndpoint") private ProducerTemplate restFactory;
+    //@Produce(uri = "direct:callRestEndpoint") private ProducerTemplate restFactory;
     
 	
     @Before
     public void setup() throws Exception {
     	
     	//build test object
-    	testCustomer = new Customer();
-    	testCustomer.setFirstName("Andy");
-    	testCustomer.setLastName("Reed");
-    	testCustomer.setPhone("3847474789");
-    	testCustomer.setState("Arizona");
-    	testCustomer.setRegion("SW");
-    	testCustomer.setZip("44747");
-    	testCustomer.setCompanyName("AMEX");
+//    	testCustomer = new Customer();
+//    	testCustomer.setFirstName("Andy");
+//    	testCustomer.setLastName("Reed");
+//    	testCustomer.setPhone("3847474789");
+//    	testCustomer.setState("Arizona");
+//    	testCustomer.setRegion("SW");
+//    	testCustomer.setZip("44747");
+//    	testCustomer.setCompanyName("AMEX");
     
 
         
@@ -56,7 +56,7 @@ public class TestDirect extends CamelSpringTestSupport{
 		System.out.print("\n\n\n\nTESTING\n\n\n\n\n");
 		
 		//send to direct:endpoint
-		restFactory.sendBodyAndHeader(testCustomer, "type", "add");
+		//restFactory.sendBodyAndHeader(testCustomer, "type", "add");
 
 
 		//dummy assert

@@ -206,6 +206,7 @@
                             <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>${basedir}/src/main/resources/META-INF/wsdl/EMPI_18080_2.wsdl</wsdl>
+                                    <wsdlLocation>classpath:wsdl/EMPI_18080_2.wsdl</wsdlLocation>
                                     <extraargs>
                                         <extraarg>-impl</extraarg>
                                     </extraargs>
