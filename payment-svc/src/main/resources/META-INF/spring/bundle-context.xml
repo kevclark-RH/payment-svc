@@ -14,6 +14,8 @@
 	xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd             http://www.springframework.org/schema/beans             http://www.springframework.org/schema/beans/spring-beans.xsd             http://www.springframework.org/schema/osgi             http://www.springframework.org/schema/osgi/spring-osgi.xsd             http://camel.apache.org/schema/cxf             http://camel.apache.org/schema/cxf/camel-cxf-spring.xsd             http://camel.apache.org/schema/spring             http://camel.apache.org/schema/spring/camel-spring.xsd          http://activemq.apache.org/schema/core          http://activemq.apache.org/schema/core/activemq-core.xsd">
 	
+	<bean id="InitBean" class="com.payment.service.InitBean" init-method="init"/>
+	
 	<bean class="org.apache.camel.processor.interceptor.Tracer" id="camelTracer">
 		<property name="traceExceptions" value="false" />
 		<property name="traceInterceptors" value="true" />
