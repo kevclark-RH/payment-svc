@@ -65,6 +65,7 @@
                                                <useUniqueVersions>false</useUniqueVersions>
                                         </manifest>
                                  </archive>
+                                 <webXml>src\main\webapp\WEB-INF\web.xml</webXml>        
                                  <dependentWarExcludes>WEB-INF/lib/*,WEB-INF/web.xml,index.*</dependentWarExcludes>
                            </configuration>
                     </plugin>
