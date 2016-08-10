@@ -18,8 +18,9 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
-	
+
 	<modules>
 		<module>../payment-svc</module>
+		<module>../payment-war</module>
 	</modules>
 </project>
