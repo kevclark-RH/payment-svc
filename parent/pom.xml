@@ -17,6 +17,7 @@
 		</license>
 	</licenses>
 	<modules>
+		<module>../integ-POJO</module>
 		<module>../payment-svc</module>
 		<module>../payment-war</module>
 		<module>../payment-ear</module>

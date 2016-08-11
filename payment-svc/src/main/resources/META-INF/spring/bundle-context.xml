@@ -22,6 +22,11 @@
 			  http://camel.apache.org/schema/spring/camel-spring.xsd">
 			  
 	<import resource="classpath:META-INF/spring/camel-cxf.xml" />
+	<import resource="classpath:META-INF/spring/cfe-enroll-context.xml" />
+	<import resource="classpath:META-INF/spring/cfe-val-context.xml" />
+	<import resource="classpath:META-INF/spring/emm-route-context.xml" />
+	<import resource="classpath:META-INF/spring/emm-val-context.xml" />
+	<import resource="classpath:META-INF/spring/subsystemX-context.xml" />
 	
 	<bean id="InitBean" class="com.payment.service.InitBean" init-method="init" />
 	

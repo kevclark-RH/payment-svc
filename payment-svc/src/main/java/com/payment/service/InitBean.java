@@ -16,30 +16,30 @@ import com.payment.service.ClassFinder.Visitor;
 public class InitBean {
 
 	public void init() {
+		System.out.println("INIT BEAN CLASSOADING ATTEMPT");
 		long startTime = System.currentTimeMillis();
 		ClassLoader classLoader = ClassLoader.getSystemClassLoader();
 		ClassLoaderClassFinderVisitor visitor = new ClassLoaderClassFinderVisitor(classLoader);
 		ClassFinder.findClasses(visitor);
 		long endTime = System.currentTimeMillis();
 		long differenceTime = endTime - startTime;
-		visitor.printLoadedClasses();
+		//visitor.printLoadedClasses();
 		System.out.println("Loaded " + visitor.getCount() + " classes in " +differenceTime + "ms");
 	}
 	
 	public void routeInit(@Body Exchange ex){
+		System.out.println("INIT ROUTE CLASSLOADING");
 		long startTime = System.currentTimeMillis();
 		ClassLoader classLoader = ex.getContext().getApplicationContextClassLoader();
 		ClassLoaderClassFinderVisitor visitor = new ClassLoaderClassFinderVisitor(classLoader);
 		ClassFinder.findClasses(visitor);
 		long endTime = System.currentTimeMillis();
 		long differenceTime = endTime - startTime;
-		visitor.printLoadedClasses();
+		//visitor.printLoadedClasses();
 		System.out.println("Loaded " + visitor.getCount() + " classes in " +differenceTime + "ms\n\nNOW TRYING PARENT\n\n");
 
 		// Use these?b
-		//URLClassLoader ucl = classLoader;
-		//ClassResolver cr = ex.getContext().getClassResolver();
-		
+		ClassResolver cr = ex.getContext().getClassResolver();
 		
 		startTime = System.currentTimeMillis();
 		classLoader = classLoader.getParent();
@@ -47,7 +47,7 @@ public class InitBean {
 		ClassFinder.findClasses(visitor);
 		endTime = System.currentTimeMillis();
 		differenceTime = endTime - startTime;
-		visitor.printLoadedClasses();
+		//visitor.printLoadedClasses();
 		System.out.println("Loaded " + visitor.getCount() + " classes in " +differenceTime + "ms\n\nNOW TRYING THREAD CLASSLOADER");
 		
 		startTime = System.currentTimeMillis();
@@ -57,7 +57,7 @@ public class InitBean {
 		ClassFinder.findClasses(visitor);
 		endTime = System.currentTimeMillis();
 		differenceTime = endTime - startTime;
-		visitor.printLoadedClasses();
+		//visitor.printLoadedClasses();
 		System.out.println("Loaded " + visitor.getCount() + " classes in " +differenceTime + "ms");
 	}
 	
@@ -107,7 +107,7 @@ public class InitBean {
 			loadedClasses = new ArrayList<String>();
 		}
 		
-		@Override
+	
 		public boolean visit(String t) {
 			try {
 				Class aClass = classLoader.loadClass(t);

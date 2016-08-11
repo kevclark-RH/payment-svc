@@ -31,6 +31,31 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<groupId>com.amexp.payment</groupId>
+				<artifactId>cfe-enrollment</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.amexp.payment</groupId>
+				<artifactId>cfe-validation</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.amexp.payment</groupId>
+				<artifactId>emm-routing</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.amexp.payment</groupId>
+				<artifactId>emm-validation</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.amexp.payment</groupId>
+				<artifactId>subsystemX</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
 				<version>4.11</version>
@@ -478,6 +503,36 @@
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
+		<dependency>
+			<groupId>com.amexp.payment</groupId>
+			<artifactId>cfe-enrollment</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.amexp.payment</groupId>
+			<artifactId>cfe-validation</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.amexp.payment</groupId>
+			<artifactId>emm-routing</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.amexp.payment</groupId>
+			<artifactId>emm-validation</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.amexp.payment</groupId>
+			<artifactId>subsystemX</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
 		<dependency>
 			<groupId>io.swagger</groupId>
 			<artifactId>swagger-annotations</artifactId>
