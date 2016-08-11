@@ -20,9 +20,11 @@
 			  http://camel.apache.org/schema/cxf/camel-cxf-spring.xsd
 			  http://camel.apache.org/schema/spring
 			  http://camel.apache.org/schema/spring/camel-spring.xsd">
+			  
 	<import resource="classpath:META-INF/spring/camel-cxf.xml" />
-	<bean id="InitBean" class="com.payment.service.InitBean"
-		init-method="init" />
+	
+	<bean id="InitBean" class="com.payment.service.InitBean" init-method="init" />
+	
 	<bean class="org.apache.camel.processor.interceptor.Tracer" id="camelTracer">
 		<property name="traceExceptions" value="false" />
 		<property name="traceInterceptors" value="true" />
@@ -97,10 +99,12 @@
 			<bean id="_bean1" method="addCustomer" ref="customerRestImplBean" />
 			<!-- will need choice().when() to invoke the right method -->
 		</route>
+		
 		<route id="fireOnce">
 			<from uri="timer:fireOnce?repeatCount=1" />
 			<log message="\n\nTIMER ROUTE FIRING\n\n" />
 			<bean ref="InitBean" method="routeInit" />
 		</route>
+		
 	</camelContext>
 </beans>
