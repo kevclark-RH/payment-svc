@@ -17,7 +17,7 @@ public class InitBean {
 		ClassFinder.findClasses(visitor);
 		long endTime = System.currentTimeMillis();
 		long differenceTime = endTime - startTime;
-		visitor.printLoadedClasses();
+		//visitor.printLoadedClasses();
 		System.out.println("Loaded " + visitor.getCount() + " classes in " +differenceTime + "ms");
 	}
 	

@@ -7,7 +7,7 @@
     <!-- location of spring xml files -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring/bundle-context.xml</param-value>
+        <param-value>classpath:payment.xml</param-value>
     </context-param>
 
     <!-- the listener that kick-starts Spring -->

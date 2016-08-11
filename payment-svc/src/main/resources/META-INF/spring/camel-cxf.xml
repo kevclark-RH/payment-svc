@@ -28,5 +28,5 @@
   <cxf:cxfEndpoint id="personEndpoint"
                    address="/person"
                    serviceClass="com.sun.mdm.index.webservice.PersonEJBService"
-                   wsdlURL="/wsdl/EMPI_18080_2.wsdl"/>
+                   wsdlURL="classpath:EMPI_18080_2.wsdl"/>
 </beans>

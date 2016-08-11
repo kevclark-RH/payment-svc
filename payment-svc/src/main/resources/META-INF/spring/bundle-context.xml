@@ -23,7 +23,7 @@
 		<property name="logName" value="com.mycompany.messages" />
 	</bean>
 
-	<import resource="classpath:META-INF/spring/camel-cxf.xml" />
+	<import resource="classpath:camel-cxf.xml" />
 
 	<bean class="com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider"
 		id="jsonProvider" />
