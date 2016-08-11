@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Vector;
 
+import org.apache.camel.Body;
+import org.apache.camel.Exchange;
+import org.apache.camel.spi.ClassResolver;
+
 import com.payment.service.ClassFinder.Visitor;
 
 
@@ -17,7 +21,40 @@ public class InitBean {
 		ClassFinder.findClasses(visitor);
 		long endTime = System.currentTimeMillis();
 		long differenceTime = endTime - startTime;
-		//visitor.printLoadedClasses();
+		visitor.printLoadedClasses();
+		System.out.println("Loaded " + visitor.getCount() + " classes in " +differenceTime + "ms");
+	}
+	
+	public void routeInit(@Body Exchange ex){
+		long startTime = System.currentTimeMillis();
+		ClassLoader classLoader = ex.getContext().getApplicationContextClassLoader();
+		ClassLoaderClassFinderVisitor visitor = new ClassLoaderClassFinderVisitor(classLoader);
+		ClassFinder.findClasses(visitor);
+		long endTime = System.currentTimeMillis();
+		long differenceTime = endTime - startTime;
+		visitor.printLoadedClasses();
+		System.out.println("Loaded " + visitor.getCount() + " classes in " +differenceTime + "ms\n\nNOW TRYING PARENT\n\n");
+
+		ClassResolver cr = ex.getContext().getClassResolver();
+		
+		
+		startTime = System.currentTimeMillis();
+		classLoader = classLoader.getParent();
+		visitor = new ClassLoaderClassFinderVisitor(classLoader);
+		ClassFinder.findClasses(visitor);
+		endTime = System.currentTimeMillis();
+		differenceTime = endTime - startTime;
+		visitor.printLoadedClasses();
+		System.out.println("Loaded " + visitor.getCount() + " classes in " +differenceTime + "ms\n\nNOW TRYING THREAD CLASSLOADER");
+		
+		startTime = System.currentTimeMillis();
+		Thread current = Thread.currentThread();
+		classLoader = current.getContextClassLoader();
+		visitor = new ClassLoaderClassFinderVisitor(classLoader);
+		ClassFinder.findClasses(visitor);
+		endTime = System.currentTimeMillis();
+		differenceTime = endTime - startTime;
+		visitor.printLoadedClasses();
 		System.out.println("Loaded " + visitor.getCount() + " classes in " +differenceTime + "ms");
 	}
 	
