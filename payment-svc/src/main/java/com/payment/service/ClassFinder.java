@@ -1,9 +1,15 @@
 package com.payment.service;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
+
+import org.apache.cxf.helpers.IOUtils;
+import org.springframework.core.io.VfsResource;
 
 public class ClassFinder {
 	
@@ -13,22 +19,39 @@ public class ClassFinder {
 	     * {@code false} if it should terminate now.
 	     */
 	    public boolean visit(T t);
+	    
+	    public String[] getJarPaths();
+	    
+	    public ClassLoader getClassLoader();
 	}
 	
     public static void findClasses(Visitor<String> visitor) {
         String classpath = System.getProperty("java.class.path");
-        String[] paths = classpath.split(System.getProperty("path.separator"));
+        String[] paths = visitor.getJarPaths();
 
-        String javaHome = System.getProperty("java.home");
-        File file = new File(javaHome + File.separator + "lib");
-        if (file.exists()) {
-            findClasses(file, file, true, visitor);
-        }
+//        String javaHome = System.getProperty("java.home");
+//        File file = new File(javaHome + File.separator + "lib");
+//        if (file.exists()) {
+//            findClasses(file, file, true, visitor);
+//        }
 
         for (String path : paths) {
-        	//System.out.println("Path: " + path);
-            file = new File(path);
-            if (file.exists()) {
+        	System.out.println("Path: " + path);
+        	File file = null;
+                InputStream inputStream = visitor.getClassLoader().getResourceAsStream(path);
+                if(inputStream == null){
+                	System.out.println("InputStream Null");
+                	continue;
+                }
+                try {
+					file = stream2file(inputStream);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+                
+            
+            if (file != null && file.exists()) {
                 findClasses(file, file, true, visitor);
             }else{
             	System.out.println("File does not exist.");
@@ -44,8 +67,9 @@ public class ClassFinder {
                 }
             }
         } else {
+        	System.out.println(file.getName().toLowerCase());
             if (file.getName().toLowerCase().endsWith(".jar") && includeJars) {
-            	//System.out.println("found jar: " + file.getName().toLowerCase());
+            	System.out.println("found jar: " + file.getName().toLowerCase());
                 JarFile jar = null;
                 try {
                     jar = new JarFile(file);
@@ -93,4 +117,18 @@ public class ClassFinder {
         }
         return sb.toString();
     }
+    
+    public static final String PREFIX = "stream2file";
+    public static final String SUFFIX = ".tmp";
+
+    public static File stream2file (InputStream in) throws IOException {
+        final File tempFile = File.createTempFile(PREFIX, SUFFIX);
+        tempFile.deleteOnExit();
+        try (FileOutputStream out = new FileOutputStream(tempFile)) {
+            IOUtils.copy(in, out);
+        }
+        System.out.print("Created File");
+        return tempFile;
+    }
+    
 }

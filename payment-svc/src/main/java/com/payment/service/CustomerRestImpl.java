@@ -15,7 +15,6 @@ public class CustomerRestImpl implements CustomerRest{
 	@Produce(uri = "direct:uploadToQueue")
 	private ProducerTemplate template;
 	
-	@Override
 	public String addCustomer(Customer toAdd) {
 		// TODO Auto-generated method stub
 		
@@ -27,7 +26,6 @@ public class CustomerRestImpl implements CustomerRest{
 		return "";
 	}
 	
-	@Override
 	public String updateCustomer(Customer toUpdate) {
 		// TODO Auto-generated method stub
 		
@@ -39,7 +37,6 @@ public class CustomerRestImpl implements CustomerRest{
 		return "";
 	}
 
-	@Override
 	public String searchCustomer(Customer toAdd) {
 		// TODO Auto-generated method stub
 		

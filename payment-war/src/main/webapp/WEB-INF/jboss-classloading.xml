@@ -1,0 +1,7 @@
+<classloading xmlns="urn:jboss:classloading:1.0"
+            name="payment-war-0.0.1-SNAPSHOT.war"
+            domain="PaymentWAR"  <!-- (domain is your war name) -->
+            parent-domain="Ignored"
+            export-all="NON_EMPTY"
+            import-all="true">
+</classloading>

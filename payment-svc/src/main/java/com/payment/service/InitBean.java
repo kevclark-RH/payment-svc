@@ -1,9 +1,15 @@
 package com.payment.service;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.Vector;
+import java.util.jar.Attributes;
+import java.util.jar.Manifest;
 
 import org.apache.camel.Body;
 import org.apache.camel.Exchange;
@@ -15,6 +21,7 @@ import com.payment.service.ClassFinder.Visitor;
 
 public class InitBean {
 
+<<<<<<< Updated upstream
 	public void init() {
 		System.out.println("INIT BEAN CLASSOADING ATTEMPT");
 		long startTime = System.currentTimeMillis();
@@ -29,15 +36,63 @@ public class InitBean {
 	
 	public void routeInit(@Body Exchange ex){
 		System.out.println("INIT ROUTE CLASSLOADING");
+=======
+	
+	public void routeInit(@Body Exchange ex){
+		System.out.println("In Route Init.");
+>>>>>>> Stashed changes
 		long startTime = System.currentTimeMillis();
 		ClassLoader classLoader = ex.getContext().getApplicationContextClassLoader();
-		ClassLoaderClassFinderVisitor visitor = new ClassLoaderClassFinderVisitor(classLoader);
+		if(classLoader == null){
+			System.out.println("ClassLoader is Null.");
+			return;
+		}
+		
+		
+		
+		//ClassLoader classLoader = ClassLoader.getSystemClassLoader();
+		ArrayList<String> jarPaths = new ArrayList<String>();
+		try {
+			ArrayList<URL> URLs = Collections.list(classLoader.getResources(""));
+			System.out.println("URLs count: " + URLs.size());
+			for(URL aURL : URLs){
+				System.out.println("\n Resource: " + aURL);
+				jarPaths.add(aURL.getFile());
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+		}
+		
+		String[] jarPathsArray = jarPaths.toArray(new String[jarPaths.size()]);
+//		InputStream inputStream = classLoader.getResourceAsStream("/META-INF/MANIFEST.MF");
+//		try {
+//			Manifest manifest = new Manifest(inputStream);
+//			Attributes attributes = manifest.getMainAttributes();
+//			try {
+//				Thread.sleep(20000);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//			for(String classPath : attributes.getValue(Attributes.Name.CLASS_PATH).split(" ")){
+//				System.out.println("\n\n\nClassPath Value: " + classPath );
+//			}
+//			
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//			return;
+//		}
+		ClassLoaderClassFinderVisitor visitor = new ClassLoaderClassFinderVisitor(classLoader, jarPathsArray);
 		ClassFinder.findClasses(visitor);
 		long endTime = System.currentTimeMillis();
 		long differenceTime = endTime - startTime;
 		//visitor.printLoadedClasses();
 		System.out.println("Loaded " + visitor.getCount() + " classes in " +differenceTime + "ms\n\nNOW TRYING PARENT\n\n");
 
+<<<<<<< Updated upstream
 		// Use these?b
 		ClassResolver cr = ex.getContext().getClassResolver();
 		
@@ -59,6 +114,31 @@ public class InitBean {
 		differenceTime = endTime - startTime;
 		//visitor.printLoadedClasses();
 		System.out.println("Loaded " + visitor.getCount() + " classes in " +differenceTime + "ms");
+=======
+		// Use these?
+		//URLClassLoader ucl = classLoader;
+		//ClassResolver cr = ex.getContext().getClassResolver();
+//		
+//		
+//		startTime = System.currentTimeMillis();
+//		classLoader = classLoader.getParent();
+//		visitor = new ClassLoaderClassFinderVisitor(classLoader, jarPathsArray);
+//		ClassFinder.findClasses(visitor);
+//		endTime = System.currentTimeMillis();
+//		differenceTime = endTime - startTime;
+//		//visitor.printLoadedClasses();
+//		System.out.println("Loaded " + visitor.getCount() + " classes in " +differenceTime + "ms\n\nNOW TRYING THREAD CLASSLOADER");
+//		
+//		startTime = System.currentTimeMillis();
+//		Thread current = Thread.currentThread();
+//		classLoader = current.getContextClassLoader();
+//		visitor = new ClassLoaderClassFinderVisitor(classLoader, jarPathsArray);
+//		ClassFinder.findClasses(visitor);
+//		endTime = System.currentTimeMillis();
+//		differenceTime = endTime - startTime;
+//		//visitor.printLoadedClasses();
+//		System.out.println("Loaded " + visitor.getCount() + " classes in " +differenceTime + "ms");
+>>>>>>> Stashed changes
 	}
 	
 	public void listLoadedClasses(){
@@ -100,14 +180,19 @@ public class InitBean {
 		ClassLoader classLoader;
 		ArrayList<String> loadedClasses;
 		int count;
+		String[] jarPaths;
 		
-		public ClassLoaderClassFinderVisitor(ClassLoader classLoader){
+		public ClassLoaderClassFinderVisitor(ClassLoader classLoader, String[] jarPaths){
 			this.classLoader = classLoader;
 			count = 0;
 			loadedClasses = new ArrayList<String>();
+			this.jarPaths = jarPaths;
 		}
 		
+<<<<<<< Updated upstream
 	
+=======
+>>>>>>> Stashed changes
 		public boolean visit(String t) {
 			try {
 				Class aClass = classLoader.loadClass(t);
@@ -140,6 +225,14 @@ public class InitBean {
 			for(String className : loadedClasses){
 				System.out.println(className);
 			}
+		}
+
+		public String[] getJarPaths() {
+			return jarPaths;
+		}
+		
+		public ClassLoader getClassLoader(){
+			return classLoader;
 		}
 	}
 }
