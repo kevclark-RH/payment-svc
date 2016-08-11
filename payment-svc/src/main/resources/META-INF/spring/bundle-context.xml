@@ -10,9 +10,19 @@
 	OF ANY KIND, either express or implied. See the License for the specific 
 	language governing permissions and limitations under the License. -->
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:cxf="http://camel.apache.org/schema/cxf" xmlns:osgi="http://www.springframework.org/schema/osgi"
+	xmlns:cxf="http://camel.apache.org/schema/cxf"
 	xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd             http://www.springframework.org/schema/beans             http://www.springframework.org/schema/beans/spring-beans.xsd             http://www.springframework.org/schema/osgi             http://www.springframework.org/schema/osgi/spring-osgi.xsd             http://camel.apache.org/schema/cxf             http://camel.apache.org/schema/cxf/camel-cxf-spring.xsd             http://camel.apache.org/schema/spring             http://camel.apache.org/schema/spring/camel-spring.xsd          http://activemq.apache.org/schema/core          http://activemq.apache.org/schema/core/activemq-core.xsd">
+	xsi:schemaLocation="http://www.springframework.org/schema/util
+			  http://www.springframework.org/schema/util/spring-util-3.0.xsd
+			  http://www.springframework.org/schema/beans
+			  http://www.springframework.org/schema/beans/spring-beans.xsd
+			  http://camel.apache.org/schema/cxf
+			  http://camel.apache.org/schema/cxf/camel-cxf-spring.xsd
+			  http://camel.apache.org/schema/spring
+			  http://camel.apache.org/schema/spring/camel-spring.xsd">
+			  
+			  
+	<import resource="classpath:META-INF/spring/camel-cxf.xml" />
 	
 	<bean id="InitBean" class="com.payment.service.InitBean" init-method="init"/>
 	
@@ -23,14 +33,14 @@
 		<property name="logName" value="com.mycompany.messages" />
 	</bean>
 
-	<import resource="classpath:camel-cxf.xml" />
 
-	<bean class="com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider"
+	<bean class="org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider"
 		id="jsonProvider" />
 
 
 	<!-- REST ENPOINT IMPLEMENTATION -->
 	<bean class="com.payment.service.CustomerRestImpl" id="customerRestImplBean" />
+	
 	<cxf:rsServer address="http://localhost:9191/rest" id="customerRestService"
 		loggingFeatureEnabled="true" serviceClass="com.payment.service.CustomerRestImpl">
 		<cxf:providers>
@@ -87,12 +97,12 @@
 			</choice>
 			<log id="_log6"
 				message="\n\n##\n###\n####\nREST CLIENT MESSAGE SENT \n\t${headers}\n\nbody: \t${in.body}\n" />
+				<to uri="cxfrs:bean:customerRestServiceClient"/>
 		</route>
 
 		<!-- CXFRS server listener that forwards to appropriate Impl method -->
 		<route id="_route1">
-			<from id="_from1"
-				uri="cxfrs:bean:customerRestService?bindingStyle=SimpleConsumer" />
+			<from id="_from1" uri="cxfrs:bean:customerRestService?bindingStyle=SimpleConsumer" />
 			<log id="_log1" message="\n\ngot rest call ${body.toString()}\n\n" />
 			<bean id="_bean1" method="addCustomer" ref="customerRestImplBean" />
 			<!-- will need choice().when() to invoke the right method -->

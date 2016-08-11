@@ -1,11 +1,11 @@
 #!/bin/bash
 
-mvn clean install
+mvn -X clean install
 
-rm /opt/jboss-eap-6.4/standalone/deployments/Payment*
+rm /opt/jboss-eap-6.4/standalone/deployments/payment*
 
-cd ../payment-war/target
+cd ../payment-ear/target
 
-cp PaymentWAR.war /opt/jboss-eap-6.4/standalone/deployments
+cp payment-ear-0.0.1-SNAPSHOT.ear /opt/jboss-eap-6.4/standalone/deployments
 
 /opt/jboss-eap-6.4/bin/standalone.sh

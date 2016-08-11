@@ -19,14 +19,17 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:cxf="http://camel.apache.org/schema/cxf"
-       xsi:schemaLocation="
-         http://www.springframework.org/schema/beans 
-         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-         http://camel.apache.org/schema/cxf 
-         http://camel.apache.org/schema/cxf/camel-cxf.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/util
+			  http://www.springframework.org/schema/util/spring-util-3.0.xsd
+			  http://www.springframework.org/schema/beans
+			  http://www.springframework.org/schema/beans/spring-beans.xsd
+			  http://camel.apache.org/schema/cxf
+			  http://camel.apache.org/schema/cxf/camel-cxf-spring.xsd
+			  http://camel.apache.org/schema/spring
+			  http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-  <cxf:cxfEndpoint id="personEndpoint"
-                   address="/person"
+ 	<cxf:cxfEndpoint id="personEndpoint"
+                   address="http://localhost:8686/person"
                    serviceClass="com.sun.mdm.index.webservice.PersonEJBService"
                    wsdlURL="classpath:EMPI_18080_2.wsdl"/>
 </beans>

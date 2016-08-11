@@ -4,10 +4,10 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.amexp.payment</groupId>
-	<artifactId>payment</artifactId>
+	<artifactId>payment-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>Fabric8 :: Quickstarts :: Camel CXF Contract First</name>
+	<name>parent project for payment application</name>
 	<description>Creates a web service using the WSDL contract first</description>
 	<licenses>
 		<license>
@@ -19,6 +19,7 @@
 	<modules>
 		<module>../payment-svc</module>
 		<module>../payment-war</module>
+		<module>../payment-ear</module>
 	</modules>
 	
 	<repositories>

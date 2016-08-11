@@ -1,0 +1,265 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.amexp.payment:payment-svc:pom:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 238, column 12
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-resources-plugin is missing. @ line 251, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] parent project for payment application
+[INFO] Payment-svc jar that holds camel context
+[INFO] Payment-War
+[INFO] Payment ear packaged for deployment
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building parent project for payment application 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ payment-parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ payment-parent ---
+[INFO] Installing /home/kevclark/AMEX/seda-direct/alt/payment-svc/parent/pom.xml to /home/kevclark/.m2/repository/com/amexp/payment/payment-parent/0.0.1-SNAPSHOT/payment-parent-0.0.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Payment-svc jar that holds camel context 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ payment-svc ---
+[INFO] Deleting /home/kevclark/AMEX/seda-direct/alt/payment-svc/payment-svc/target
+[INFO] 
+[INFO] --- cxf-codegen-plugin:2.7.0.redhat-610379:wsdl2java (generate-sources) @ payment-svc ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ payment-svc ---
+[INFO] Installing /home/kevclark/AMEX/seda-direct/alt/payment-svc/payment-svc/pom.xml to /home/kevclark/.m2/repository/com/amexp/payment/payment-svc/0.0.1-SNAPSHOT/payment-svc-0.0.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Payment-War 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ payment-war ---
+[INFO] Deleting /home/kevclark/AMEX/seda-direct/alt/payment-svc/payment-war/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ payment-war ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:compile (default-compile) @ payment-war ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ payment-war ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/kevclark/AMEX/seda-direct/alt/payment-svc/payment-war/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:testCompile (default-testCompile) @ payment-war ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ payment-war ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ payment-war ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [payment-war] in [/home/kevclark/AMEX/seda-direct/alt/payment-svc/payment-war/target/PaymentWAR]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/kevclark/AMEX/seda-direct/alt/payment-svc/payment-war/src/main/webapp]
+[INFO] Webapp assembled in [59 msecs]
+[INFO] Building war: /home/kevclark/AMEX/seda-direct/alt/payment-svc/payment-war/target/PaymentWAR.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ payment-war ---
+[INFO] Installing /home/kevclark/AMEX/seda-direct/alt/payment-svc/payment-war/target/PaymentWAR.war to /home/kevclark/.m2/repository/com/amexp/payment/payment-war/0.0.1-SNAPSHOT/payment-war-0.0.1-SNAPSHOT.war
+[INFO] Installing /home/kevclark/AMEX/seda-direct/alt/payment-svc/payment-war/pom.xml to /home/kevclark/.m2/repository/com/amexp/payment/payment-war/0.0.1-SNAPSHOT/payment-war-0.0.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Payment ear packaged for deployment 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ payment-ear ---
+[INFO] Deleting /home/kevclark/AMEX/seda-direct/alt/payment-svc/payment-ear/target
+[INFO] 
+[INFO] --- maven-ear-plugin:2.8:generate-application-xml (default-generate-application-xml) @ payment-ear ---
+[INFO] Generating application.xml
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ payment-ear ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/kevclark/AMEX/seda-direct/alt/payment-svc/payment-ear/src/main/resources
+[INFO] 
+[INFO] --- maven-ear-plugin:2.8:ear (default-ear) @ payment-ear ---
+[INFO] Copying artifact [war:com.amexp.payment:payment-war:0.0.1-SNAPSHOT] to [payment-war-0.0.1-SNAPSHOT.war]
+[INFO] Copy ear sources to /home/kevclark/AMEX/seda-direct/alt/payment-svc/payment-ear/target/payment-ear-0.0.1-SNAPSHOT
+[INFO] Including custom manifest file [/home/kevclark/AMEX/seda-direct/alt/payment-svc/payment-ear/target/payment-ear-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF]
+[INFO] Building jar: /home/kevclark/AMEX/seda-direct/alt/payment-svc/payment-ear/target/payment-ear-0.0.1-SNAPSHOT.ear
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ payment-ear ---
+[INFO] Installing /home/kevclark/AMEX/seda-direct/alt/payment-svc/payment-ear/target/payment-ear-0.0.1-SNAPSHOT.ear to /home/kevclark/.m2/repository/com/amexp/payment/payment-ear/0.0.1-SNAPSHOT/payment-ear-0.0.1-SNAPSHOT.ear
+[INFO] Installing /home/kevclark/AMEX/seda-direct/alt/payment-svc/payment-ear/pom.xml to /home/kevclark/.m2/repository/com/amexp/payment/payment-ear/0.0.1-SNAPSHOT/payment-ear-0.0.1-SNAPSHOT.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] parent project for payment application ............. SUCCESS [  0.165 s]
+[INFO] Payment-svc jar that holds camel context ........... SUCCESS [  3.310 s]
+[INFO] Payment-War ........................................ SUCCESS [  1.404 s]
+[INFO] Payment ear packaged for deployment ................ SUCCESS [  0.845 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 6.296 s
+[INFO] Finished at: 2016-08-10T20:40:26-07:00
+[INFO] Final Memory: 27M/260M
+[INFO] ------------------------------------------------------------------------
+=========================================================================
+
+  JBoss Bootstrap Environment
+
+  JBOSS_HOME: /opt/jboss-eap-6.4
+
+  JAVA: java
+
+  JAVA_OPTS:  -server -XX:+UseCompressedOops -verbose:gc -Xloggc:"/opt/jboss-eap-6.4/standalone/log/gc.log" -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -Xms1303m -Xmx1303m -XX:MaxPermSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Djboss.modules.policy-permissions=true
+
+=========================================================================
+
+[0m20:40:27,343 INFO  [org.jboss.modules] (main) JBoss Modules version 1.3.6.Final-redhat-1
+[0m[0m20:40:27,476 INFO  [org.jboss.msc] (main) JBoss MSC version 1.1.5.Final-redhat-1
+[0m[0m20:40:27,526 INFO  [org.jboss.as] (MSC service thread 1-6) JBAS015899: JBoss EAP 6.4.0.GA (AS 7.5.0.Final-redhat-21) starting
+[0m[0m20:40:28,449 INFO  [org.xnio] (MSC service thread 1-3) XNIO Version 3.0.13.GA-redhat-1
+[0m[0m20:40:28,457 INFO  [org.xnio.nio] (MSC service thread 1-3) XNIO NIO Implementation Version 3.0.13.GA-redhat-1
+[0m[0m20:40:28,464 INFO  [org.jboss.as.server] (Controller Boot Thread) JBAS015888: Creating http management service using socket-binding (management-http)
+[0m[0m20:40:28,472 INFO  [org.jboss.remoting] (MSC service thread 1-3) JBoss Remoting version 3.3.4.Final-redhat-1
+[0m[0m20:40:28,515 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 31) JBAS010280: Activating Infinispan subsystem.
+[0m[0m20:40:28,565 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 39) JBAS011800: Activating Naming Subsystem
+[0m[0m20:40:28,578 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 37) JBAS012615: Activated the following JSF Implementations: [main, 1.2]
+[0m[0m20:40:28,603 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 44) JBAS013371: Activating Security Subsystem
+[0m[0m20:40:28,612 INFO  [org.jboss.as.connector.logging] (MSC service thread 1-1) JBAS010408: Starting JCA Subsystem (IronJacamar 1.0.31.Final-redhat-1)
+[0m[0m20:40:28,624 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-4) JBAS015400: Bound mail session [java:jboss/mail/Default]
+[0m[33m20:40:28,631 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 46) JBAS010153: Node identifier property is set to the default value. Please make sure it is unique.
+[0m[0m20:40:28,633 INFO  [org.jboss.as.naming] (MSC service thread 1-8) JBAS011802: Starting Naming Service
+[0m[0m20:40:28,643 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 27) JBAS010403: Deploying JDBC-compliant driver class org.h2.Driver (version 1.3)
+[0m[0m20:40:28,650 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 48) JBAS015537: Activating WebServices Extension
+[0m[0m20:40:28,683 INFO  [org.jboss.as.security] (MSC service thread 1-8) JBAS013370: Current PicketBox version=4.1.1.Final-redhat-1
+[0m[0m20:40:29,018 INFO  [org.apache.coyote.http11.Http11Protocol] (MSC service thread 1-2) JBWEB003001: Coyote HTTP/1.1 initializing on : http-/127.0.0.1:8080
+[0m[0m20:40:29,043 INFO  [org.apache.coyote.http11.Http11Protocol] (MSC service thread 1-2) JBWEB003000: Coyote HTTP/1.1 starting on: http-/127.0.0.1:8080
+[0m[0m20:40:29,172 INFO  [org.jboss.as.remoting] (MSC service thread 1-2) JBAS017100: Listening on 127.0.0.1:4447
+[0m[0m20:40:29,173 INFO  [org.jboss.as.remoting] (MSC service thread 1-8) JBAS017100: Listening on 127.0.0.1:9999
+[0m[0m20:40:29,184 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-4) JBAS015012: Started FileSystemDeploymentService for directory /opt/jboss-eap-6.4/standalone/deployments
+[0m[0m20:40:29,199 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) JBAS015876: Starting deployment of "payment-ear-0.0.1-SNAPSHOT.ear" (runtime-name: "payment-ear-0.0.1-SNAPSHOT.ear")
+[0m[0m20:40:29,235 INFO  [org.jboss.ws.common.management] (MSC service thread 1-1) JBWS022052: Starting JBoss Web Services - Stack CXF Server 4.3.4.Final-redhat-1
+[0m[0m20:40:29,330 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) JBAS010400: Bound data source [java:jboss/datasources/ExampleDS]
+[0m[0m20:40:29,460 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015973: Starting subdeployment (runtime-name: "payment-war-0.0.1-SNAPSHOT.war")
+[0m[33m20:40:30,510 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry payment-svc-0.0.1-SNAPSHOT.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,511 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry camel-core-2.13.1.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,511 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry jaxb-impl-2.2.6.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,511 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry camel-spring-2.13.1.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,512 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry spring-tx-3.2.8.RELEASE.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,512 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry cxf-core-3.0.4.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,512 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry woodstox-core-asl-4.4.1.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,512 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry stax2-api-3.1.4.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,513 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry xmlschema-core-2.2.1.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,513 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry cxf-rt-transports-http-3.0.4.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,513 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry cxf-rt-frontend-jaxrs-3.0.4.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,513 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry javax.ws.rs-api-2.0.1.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,514 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry javax.annotation-api-1.2.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,514 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry cxf-rt-bindings-soap-3.0.4.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,514 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry cxf-rt-wsdl-3.0.4.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,514 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry wsdl4j-1.6.3.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,514 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry cxf-rt-databinding-jaxb-3.0.4.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,515 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry jaxb-core-2.2.11.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,515 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry cxf-rt-rs-client-3.0.4.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,515 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry cxf-rt-frontend-jaxws-3.0.4.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,515 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry xml-resolver-1.2.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,516 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry asm-3.3.1.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,516 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry cxf-rt-bindings-xml-3.0.4.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,516 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry cxf-rt-frontend-simple-3.0.4.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,516 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry cxf-rt-ws-addr-3.0.4.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,516 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry cxf-rt-ws-policy-3.0.4.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,517 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry neethi-3.0.3.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,517 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry cxf-rt-rs-extension-providers-3.0.4.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,517 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry camel-bindy-2.13.1.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,517 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry camel-dozer-2.13.1.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,517 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry dozer-5.4.0.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,518 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry commons-beanutils-1.8.3.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,518 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry commons-lang3-3.1.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,518 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry jcl-over-slf4j-1.6.6.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,518 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry camel-jackson-2.13.1.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,519 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry jackson-module-jaxb-annotations-2.3.2.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,519 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry log4j-1.2.17.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,519 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry slf4j-api-1.7.5.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,520 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry slf4j-log4j12-1.7.5.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,520 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry camel-http4-2.13.1.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,520 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry geronimo-servlet_3.0_spec-1.0.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,520 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry httpclient-4.3.3.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,520 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry httpcore-4.3.2.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,521 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry commons-codec-1.6.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,521 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry jettison-1.3.5.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,521 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry stax-api-1.0.1.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,521 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry jackson-jaxrs-json-provider-2.4.3.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,522 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry jackson-jaxrs-base-2.4.3.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,522 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry jackson-core-2.4.3.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,522 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry camel-sql-2.13.1.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,522 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry spring-jdbc-3.2.8.RELEASE.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,523 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry commons-lang-2.6.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,523 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry jackson-databind-2.3.3.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,523 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry jackson-annotations-2.3.0.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,523 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry jaxb-api-2.2.3.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,523 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry stax-api-1.0-2.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,524 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry activation-1.1.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,524 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry spring-web-4.3.0.RELEASE.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,524 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry spring-aop-4.3.0.RELEASE.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,524 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry spring-beans-4.3.0.RELEASE.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,525 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry spring-context-4.3.0.RELEASE.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,525 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry spring-expression-4.3.0.RELEASE.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,525 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry spring-core-4.3.0.RELEASE.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,525 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry commons-logging-1.2.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,544 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry jaxb-api.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war/WEB-INF/lib/jaxb-core-2.2.11.jar  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,554 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015960: Class Path entry jaxb-api.jar in /content/payment-ear-0.0.1-SNAPSHOT.ear/payment-war-0.0.1-SNAPSHOT.war/WEB-INF/lib/jaxb-impl-2.2.6.jar  does not point to a valid jar for a Class-Path reference.
+[0m[33m20:40:30,836 WARN  [org.jboss.as.ee] (MSC service thread 1-4) JBAS011006: Not installing optional component org.apache.cxf.transport.http.Servlet3ContinuationProvider$Servlet3Continuation due to an exception (enable DEBUG log level to see the cause)
+[0m[33m20:40:30,836 WARN  [org.jboss.as.ee] (MSC service thread 1-4) JBAS011006: Not installing optional component org.springframework.http.server.ServletServerHttpAsyncRequestControl due to an exception (enable DEBUG log level to see the cause)
+[0m[33m20:40:30,837 WARN  [org.jboss.as.ee] (MSC service thread 1-4) JBAS011006: Not installing optional component org.springframework.web.context.request.async.StandardServletAsyncWebRequest due to an exception (enable DEBUG log level to see the cause)
+[0m[33m20:40:30,880 WARN  [org.jboss.jaxrs] (MSC service thread 1-4) JBAS011203: No Servlet mappings found for JAX-RS application: org.apache.cxf.jaxrs.servlet.CXFNonSpringJaxrsServlet$ApplicationImpl either annotate it with @ApplicationPath or add a servlet-mapping in web.xml
+[0m[0m20:40:30,913 INFO  [org.jboss.web] (ServerService Thread Pool -- 55) JBAS018210: Register web context: /payment-war
+[0m[0m20:40:30,927 INFO  [org.apache.catalina.core.ContainerBase.[jboss.web].[default-host].[/payment-war]] (ServerService Thread Pool -- 55) No Spring WebApplicationInitializer types detected on classpath
+[0m[0m20:40:30,940 INFO  [org.apache.catalina.core.ContainerBase.[jboss.web].[default-host].[/payment-war]] (ServerService Thread Pool -- 55) Initializing Spring root WebApplicationContext
+[0m[0m20:40:30,940 INFO  [org.springframework.web.context.ContextLoader] (ServerService Thread Pool -- 55) Root WebApplicationContext: initialization started
+[0m[0m20:40:30,995 INFO  [org.springframework.web.context.support.XmlWebApplicationContext] (ServerService Thread Pool -- 55) Refreshing Root WebApplicationContext: startup date [Wed Aug 10 20:40:30 MST 2016]; root of context hierarchy
+[0m[0m20:40:31,044 INFO  [org.springframework.web.context.ContextLoader] (ServerService Thread Pool -- 55) Root WebApplicationContext: initialization completed in 104 ms
+[0m[31m20:40:31,100 ERROR [org.apache.catalina.core.ContainerBase.[jboss.web].[default-host].[/payment-war]] (ServerService Thread Pool -- 55) JBWEB000289: Servlet CXFServlet threw load() exception: org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'cxf' is defined
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanDefinition(DefaultListableBeanFactory.java:701) [spring-beans-4.3.0.RELEASE.jar:4.3.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getMergedLocalBeanDefinition(AbstractBeanFactory.java:1180) [spring-beans-4.3.0.RELEASE.jar:4.3.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:284) [spring-beans-4.3.0.RELEASE.jar:4.3.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) [spring-beans-4.3.0.RELEASE.jar:4.3.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1082) [spring-context-4.3.0.RELEASE.jar:4.3.0.RELEASE]
+	at org.apache.cxf.transport.servlet.CXFServlet.loadBus(CXFServlet.java:80) [cxf-rt-transports-http-3.0.4.jar:3.0.4]
+	at org.apache.cxf.transport.servlet.CXFNonSpringServlet.init(CXFNonSpringServlet.java:76) [cxf-rt-transports-http-3.0.4.jar:3.0.4]
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1194) [jbossweb-7.5.7.Final-redhat-1.jar:7.5.7.Final-redhat-1]
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1100) [jbossweb-7.5.7.Final-redhat-1.jar:7.5.7.Final-redhat-1]
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:3593) [jbossweb-7.5.7.Final-redhat-1.jar:7.5.7.Final-redhat-1]
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:3802) [jbossweb-7.5.7.Final-redhat-1.jar:7.5.7.Final-redhat-1]
+	at org.jboss.as.web.deployment.WebDeploymentService.doStart(WebDeploymentService.java:163) [jboss-as-web-7.5.0.Final-redhat-21.jar:7.5.0.Final-redhat-21]
+	at org.jboss.as.web.deployment.WebDeploymentService.access$000(WebDeploymentService.java:61) [jboss-as-web-7.5.0.Final-redhat-21.jar:7.5.0.Final-redhat-21]
+	at org.jboss.as.web.deployment.WebDeploymentService$1.run(WebDeploymentService.java:96) [jboss-as-web-7.5.0.Final-redhat-21.jar:7.5.0.Final-redhat-21]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [rt.jar:1.8.0_92]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [rt.jar:1.8.0_92]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [rt.jar:1.8.0_92]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [rt.jar:1.8.0_92]
+	at java.lang.Thread.run(Thread.java:745) [rt.jar:1.8.0_92]
+	at org.jboss.threads.JBossThread.run(JBossThread.java:122)
+
+[0m[0m20:40:31,136 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 28) JBAS015859: Deployed "payment-ear-0.0.1-SNAPSHOT.ear" (runtime-name : "payment-ear-0.0.1-SNAPSHOT.ear")
+[0m[0m20:40:31,158 INFO  [org.jboss.as] (Controller Boot Thread) JBAS015961: Http management interface listening on http://127.0.0.1:9990/management
+[0m[0m20:40:31,159 INFO  [org.jboss.as] (Controller Boot Thread) JBAS015951: Admin console listening on http://127.0.0.1:9990
+[0m[0m20:40:31,159 INFO  [org.jboss.as] (Controller Boot Thread) JBAS015874: JBoss EAP 6.4.0.GA (AS 7.5.0.Final-redhat-21) started in 4049ms - Started 237 of 275 services (62 services are lazy, passive or on-demand)
+[0m[0m20:40:41,804 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-1) JBAS010409: Unbound data source [java:jboss/datasources/ExampleDS]
+[0m[0m20:40:41,805 INFO  [org.apache.catalina.core] (MSC service thread 1-7) JBWEB001079: Container org.apache.catalina.core.ContainerBase.[jboss.web].[default-host].[/] has not been started
+[0m[0m20:40:41,806 INFO  [org.jboss.web] (ServerService Thread Pool -- 18) JBAS018224: Unregister web context: /payment-war
+[0m[0m20:40:41,810 INFO  [org.apache.coyote.http11.Http11Protocol] (MSC service thread 1-8) JBWEB003075: Coyote HTTP/1.1 pausing on: http-/127.0.0.1:8080
+[0m[0m20:40:41,810 INFO  [org.apache.coyote.http11.Http11Protocol] (MSC service thread 1-8) JBWEB003077: Coyote HTTP/1.1 stopping on : http-/127.0.0.1:8080
+[0m[0m20:40:41,833 INFO  [org.apache.catalina.core.ContainerBase.[jboss.web].[default-host].[/payment-war]] (ServerService Thread Pool -- 18) Closing Spring root WebApplicationContext
+[0m[0m20:40:41,833 INFO  [org.springframework.web.context.support.XmlWebApplicationContext] (ServerService Thread Pool -- 18) Closing Root WebApplicationContext: startup date [Wed Aug 10 20:40:30 MST 2016]; root of context hierarchy
+[0m[0m20:40:41,869 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015974: Stopped subdeployment (runtime-name: payment-war-0.0.1-SNAPSHOT.war) in 72ms
+[0m[0m20:40:41,874 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment payment-ear-0.0.1-SNAPSHOT.ear (runtime-name: payment-ear-0.0.1-SNAPSHOT.ear) in 75ms
+[0m[0m20:40:41,877 INFO  [org.jboss.as] (MSC service thread 1-2) JBAS015950: JBoss EAP 6.4.0.GA (AS 7.5.0.Final-redhat-21) stopped in 77ms
+[0m

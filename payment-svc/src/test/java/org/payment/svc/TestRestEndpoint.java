@@ -9,14 +9,17 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.AbstractXmlApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.payment.models.Customer;
+import com.sun.mdm.index.webservice.PersonBean;
 import com.sun.mdm.index.webservice.PersonEJB;
+import com.sun.mdm.index.webservice.SystemPerson;
 
 
-public class TestCXFEndpoint  extends CamelSpringTestSupport {
+public class TestRestEndpoint  extends CamelSpringTestSupport {
 
-	private PersonEJB testPerson;
+	private Customer person;
 
-    //@Produce(uri = "direct:callCXFEndpointCXF") private ProducerTemplate cxfFactory;
+    @Produce(uri = "direct:callRestEndpoint") private ProducerTemplate restFactory;
     
 	
     @Before
@@ -25,26 +28,13 @@ public class TestCXFEndpoint  extends CamelSpringTestSupport {
     	//build test object
     	//need some sort of wsdl object here that we can send
     	
-//    	testPerson = new PersonEJB();
-//    	
-//        person= new PersonBean();
-//        sysPerson = new SystemPerson();
-//        
-//        person.setLastName("Williams");
-//        person.setFirstName("Mark");
-//        person.setVetStatus("yes");
-//        person.setBirthOrder("2");
-//        person.setAuthFlag("no");
-//        person.setDegree("bachelors");
-//        person.setGender("male");
-//        
-//        sysPerson.setPerson(person);
-//        sysPerson.setStatus("CRITICAL");
-//        sysPerson.setSystemCode("LZJFDK");
-//        sysPerson.setCreateUser("yes");
-//        sysPerson.setLocalId("1238DFT324");
-//        
-//        exMatch.setSysObjBean(sysPerson);
+        person= new Customer();
+        
+        person.setLastName("Williams");
+        person.setFirstName("Mark");
+        person.setActive(true);
+        person.setCompanyName("Red Hat");
+        person.setPhone("867-5309");
     }
     
     
@@ -55,7 +45,7 @@ public class TestCXFEndpoint  extends CamelSpringTestSupport {
 		System.out.print("\n\n\n\nTESTING\n\n\n\n\n");
 		
 		//send to direct:endpoint
-		//soapFactory.sendBody(testCustomer);
+		restFactory.sendBodyAndHeader(person, "type", "update");
 
 
 		//dummy assert

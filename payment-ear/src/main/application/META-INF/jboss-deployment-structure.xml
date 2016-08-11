@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-deployment-structure>
+	<sub-deployment name="payment-war-0.0.1-SNAPSHOT.war" />
+
+	<deployment>
+		<exclude-subsystems>
+			<subsystem name="webservices" />
+			<subsystem name="pojo" />
+		</exclude-subsystems>
+		<exclusions>
+			<module name="org.apache.log4j" />
+			<module name="org.slf4j" />
+			<module name="org.apache.commons.logging" />
+			<module name="org.log4j" />
+			<module name="org.jboss.logging" />
+		</exclusions>
+	</deployment>
+</jboss-deployment-structure>
