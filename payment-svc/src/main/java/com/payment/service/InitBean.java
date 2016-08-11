@@ -1,5 +1,6 @@
 package com.payment.service;
 
+import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Vector;
@@ -35,7 +36,9 @@ public class InitBean {
 		visitor.printLoadedClasses();
 		System.out.println("Loaded " + visitor.getCount() + " classes in " +differenceTime + "ms\n\nNOW TRYING PARENT\n\n");
 
-		ClassResolver cr = ex.getContext().getClassResolver();
+		// Use these?
+		//URLClassLoader ucl = classLoader;
+		//ClassResolver cr = ex.getContext().getClassResolver();
 		
 		
 		startTime = System.currentTimeMillis();
