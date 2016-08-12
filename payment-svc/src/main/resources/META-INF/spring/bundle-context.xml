@@ -22,18 +22,13 @@
 			  http://camel.apache.org/schema/spring/camel-spring.xsd">
 			  
 	<import resource="classpath:META-INF/spring/camel-cxf.xml" />
-<<<<<<< Updated upstream
 	<import resource="classpath:META-INF/spring/cfe-enroll-context.xml" />
 	<import resource="classpath:META-INF/spring/cfe-val-context.xml" />
 	<import resource="classpath:META-INF/spring/emm-route-context.xml" />
 	<import resource="classpath:META-INF/spring/emm-val-context.xml" />
 	<import resource="classpath:META-INF/spring/subsystemX-context.xml" />
 	
-	<bean id="InitBean" class="com.payment.service.InitBean" init-method="init" />
-	
-=======
-	<bean id="InitBean" class="com.payment.service.InitBean" />
->>>>>>> Stashed changes
+	<bean id="InitBean" class="com.payment.service.InitBean"/>
 	<bean class="org.apache.camel.processor.interceptor.Tracer" id="camelTracer">
 		<property name="traceExceptions" value="false" />
 		<property name="traceInterceptors" value="true" />
@@ -114,14 +109,5 @@
 			<log message="\n\nTIMER ROUTE FIRING\n\n" />
 			<bean ref="InitBean" method="routeInit" />
 		</route>
-<<<<<<< Updated upstream
-		
-=======
-		<route id="fireOnceTest">
-			<from uri="direct:explicitCall" />
-			<log message="\n\nTIMER ROUTE FIRING\n\n" />
-			<bean ref="InitBean" method="routeInit" />
-		</route>
->>>>>>> Stashed changes
 	</camelContext>
 </beans>

@@ -28,7 +28,7 @@ public class TestDirect extends CamelSpringTestSupport{
 	private Customer testCustomer;
 	//@EndpointInject(uri = "direct:callRestEndpoint") private MockEndpoint resultEndpoint;
 
-    @Produce(uri = "direct:explicitCall") private ProducerTemplate callFactory;
+    //@Produce(uri = "direct:explicitCall") private ProducerTemplate callFactory;
     
 	
     @Before
@@ -56,7 +56,7 @@ public class TestDirect extends CamelSpringTestSupport{
 		System.out.print("\n\n\n\nTESTING\n\n\n\n\n");
 		
 		//send to direct:endpoint
-		callFactory.sendBody(null);
+		//callFactory.sendBody(testCustomer);
 
 
 		//dummy assert
