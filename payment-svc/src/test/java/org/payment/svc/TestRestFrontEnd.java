@@ -11,11 +11,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.payment.models.Customer;
 
-public class TestCXFVSSoapComponents  extends CamelSpringTestSupport {
+public class TestRestFrontEnd  extends CamelSpringTestSupport {
 
 	private Customer testCustomer;
 
-    //@Produce(uri = "direct:callCXFEndpointSOAP") private ProducerTemplate soapFactory;
+    @Produce(uri = "direct:callRestFrontEnd") private ProducerTemplate restFactory;
     
 	
     @Before
@@ -41,8 +41,9 @@ public class TestCXFVSSoapComponents  extends CamelSpringTestSupport {
 		
 		System.out.print("\n\n\n\nTESTING\n\n\n\n\n");
 		
+		
 		//send to direct:endpoint
-		//soapFactory.sendBody(testCustomer);
+		restFactory.sendBodyAndHeader(testCustomer, "type", "search");
 
 
 		//dummy assert

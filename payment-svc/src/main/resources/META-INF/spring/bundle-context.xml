@@ -20,16 +20,14 @@
 			  http://camel.apache.org/schema/cxf/camel-cxf-spring.xsd
 			  http://camel.apache.org/schema/spring
 			  http://camel.apache.org/schema/spring/camel-spring.xsd">
-			  
 	<import resource="classpath:META-INF/spring/camel-cxf.xml" />
 	<import resource="classpath:META-INF/spring/cfe-enroll-context.xml" />
 	<import resource="classpath:META-INF/spring/cfe-val-context.xml" />
 	<import resource="classpath:META-INF/spring/emm-route-context.xml" />
 	<import resource="classpath:META-INF/spring/emm-val-context.xml" />
 	<import resource="classpath:META-INF/spring/subsystemX-context.xml" />
-	
-	<bean id="InitBean" class="com.payment.service.InitBean" init-method="init" />
-	
+	<bean id="InitBean" class="com.payment.service.InitBean"
+		init-method="init" />
 	<bean class="org.apache.camel.processor.interceptor.Tracer" id="camelTracer">
 		<property name="traceExceptions" value="false" />
 		<property name="traceInterceptors" value="true" />
@@ -100,16 +98,25 @@
 		<route id="_route1">
 			<from id="_from1"
 				uri="cxfrs:bean:customerRestService?bindingStyle=SimpleConsumer" />
-			<log id="_log1" message="\n\ngot rest call ${body.toString()}\n\n" />
-			<bean id="_bean1" method="addCustomer" ref="customerRestImplBean" />
+			<log message="message received ${body}" />
+			<choice>
+				<when>
+					<simple>${header.operationName} == 'postPaymentInstruction'
+					</simple>
+					<to uri="direct:postPaymentInstruction" />
+				</when>
+				<when>
+					<simple>${header.operationName} == 'postSentinel'</simple>
+					<to uri="direct:postSentinel" />
+				</when>
+				<when>
+				<simple>${header.operationName} == 'postEMMRouting'</simple></when>
+				<otherwise>
+					<to uri="direct:emmValidation" />
+				</otherwise>
+			</choice>
+			<to uri="direct:subsystemXCall" />
 			<!-- will need choice().when() to invoke the right method -->
 		</route>
-		
-		<route id="fireOnce">
-			<from uri="timer:fireOnce?repeatCount=1" />
-			<log message="\n\nTIMER ROUTE FIRING\n\n" />
-			<bean ref="InitBean" method="routeInit" />
-		</route>
-		
 	</camelContext>
 </beans>
