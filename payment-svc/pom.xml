@@ -717,6 +717,11 @@
 			<artifactId>jboss-vfs</artifactId>
 			<version>3.2.9.Final</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-rs-client</artifactId>
+			<version>3.0.5</version>
+		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>

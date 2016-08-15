@@ -4,6 +4,8 @@ package org.amexp.payment.test;
 import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Produce;
@@ -29,7 +31,7 @@ public class TestRestFrontEnd extends CamelSpringTestSupport{
 	private Customer testCustomer;
  
   
-    @Produce(uri = "direct:callRestFrontEnd") protected ProducerTemplate restFactory;
+    @Produce(uri = "cxfrs:bean:customerRestServiceClient") protected ProducerTemplate restFactory;
 	
     @Before
     public void setup() throws Exception {
@@ -57,7 +59,15 @@ public class TestRestFrontEnd extends CamelSpringTestSupport{
 		
 		
 		System.out.print("\n\n\n\nRUNNING testCamelRoute() \n\n\n\n\n");
-		restFactory.sendBodyAndHeader(testCustomer, "type", "add");
+		Map<String, Object> headers =new HashMap<String, Object>();
+		headers.put("Content-Type", "application/json");
+		headers.put("Accept", "application/json");
+		headers.put("CamelHTTPMethod", "POST");
+		headers.put("CamelCxfRsUsingHttpAPI", true);
+		headers.put("CamelHTTPPath", "/PersonEJB/addCustomer");
+		
+		
+		restFactory.sendBodyAndHeaders(testCustomer, headers);
 
 
 		
