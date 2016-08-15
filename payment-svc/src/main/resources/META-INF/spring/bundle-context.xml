@@ -20,6 +20,7 @@
 			  http://camel.apache.org/schema/cxf/camel-cxf-spring.xsd
 			  http://camel.apache.org/schema/spring
 			  http://camel.apache.org/schema/spring/camel-spring.xsd">
+			  
 	<import resource="classpath:META-INF/spring/camel-cxf.xml" />
 	<import resource="classpath:META-INF/spring/cfe-enroll-context.xml" />
 	<import resource="classpath:META-INF/spring/cfe-val-context.xml" />
@@ -107,7 +108,7 @@
 		<route id="_route1">
 			<from id="_from1"
 				uri="cxfrs:bean:customerRestService?bindingStyle=SimpleConsumer" />
-			<log message="message received ${body}" />
+			<log message="message received \n\n------------\n\n${body.toString()}\n\n${body}\n-------------\n" />
 		</route>
 		<!--<route> <choice> <from uri="" <when> <simple>${header.operationName} 
 			== 'postPaymentInstruction' </simple> <to uri="direct:postPaymentInstruction" 

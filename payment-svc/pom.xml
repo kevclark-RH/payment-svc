@@ -26,7 +26,7 @@
 		<spring.version>4.2.0.RELEASE</spring.version>
 		<camelspring.version>2.17.0</camelspring.version>
 		<brms.version>6.0.3-redhat-6</brms.version>
-		<cxf.version>3.0.4</cxf.version>
+		<cxf.version>3.0.5</cxf.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -69,42 +69,42 @@
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-core</artifactId>
-				<version>3.0.4</version>
+				<version>3.0.5</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-rt-transports-http-jetty</artifactId>
-				<version>3.0.4</version>
+				<version>3.0.5</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-rt-transports-http</artifactId>
-				<version>3.0.4</version>
+				<version>3.0.5</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-rt-frontend-jaxrs</artifactId>
-				<version>3.0.4</version>
+				<version>3.0.5</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-rt-bindings-soap</artifactId>
-				<version>3.0.4</version>
+				<version>3.0.5</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-rt-rs-client</artifactId>
-				<version>3.0.4</version>
+				<version>3.0.5</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-rt-frontend-jaxws</artifactId>
-				<version>3.0.4</version>
+				<version>3.0.5</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.cxf</groupId>
 				<artifactId>cxf-rt-rs-extension-providers</artifactId>
-				<version>3.0.4</version>
+				<version>3.0.5</version>
 			</dependency>
 			<dependency>
 				<groupId>javax.ws.rs</groupId>
@@ -467,7 +467,7 @@
 			<dependency>
 				<groupId>com.americanexpress.util.juice</groupId>
 				<artifactId>juice</artifactId>
-				<version>3.0.4</version>
+				<version>3.0.5</version>
 			</dependency>
 			<dependency>
 				<groupId>org.quartz-scheduler</groupId>
@@ -697,13 +697,19 @@
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http-jetty</artifactId>
-			<version>3.0.4</version>
+			<version>3.0.5</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http</artifactId>
-			<version>3.0.4</version>
+			<version>3.0.5</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-core</artifactId>
+			<version>3.0.5</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>

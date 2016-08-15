@@ -11,7 +11,7 @@ import com.sun.mdm.index.webservice.AddOrUpdateSystemRecord;
 import com.sun.mdm.index.webservice.AddOrUpdateSystemRecord;
 import com.sun.mdm.index.webservice.AddOrUpdateSystemRecord;
 
-
+@ApplicationPath("/PersonEJB/")
 @Path("/PersonEJB/")
 public interface CustomerRest {
 
