@@ -10,6 +10,9 @@ local.properties
 .loadpath
 .recommenders
 
+#deploy script
+*/deploy.sh
+
 # Eclipse Core
 .project
 
