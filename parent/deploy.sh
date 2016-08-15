@@ -1,11 +1,11 @@
 #!/bin/bash
 
-mvn -X clean install -DskipTests 
+mvn -X clean install 
 
-rm /opt/jboss-eap-6.4/standalone/deployments/payment*
+rm /opt/EAP-6.4.0/standalone/deployments/payment*
 
 cd ../payment-ear/target
 
-cp payment-ear-0.0.1-SNAPSHOT.ear /opt/jboss-eap-6.4/standalone/deployments
+cp payment-ear-0.0.1-SNAPSHOT.ear /opt/EAP-6.4.0/standalone/deployments
 
-/opt/jboss-eap-6.4/bin/standalone.sh
+~/EAP-6.4.0/bin/standalone.sh

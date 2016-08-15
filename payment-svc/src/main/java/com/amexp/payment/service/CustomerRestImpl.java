@@ -1,9 +1,9 @@
-package com.payment.service;
+package com.amexp.payment.service;
 
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
 
-import com.payment.models.Customer;
+import com.amexp.payment.models.Customer;
 import com.sun.mdm.index.webservice.AddOrUpdateSystemRecord;
 import com.sun.mdm.index.webservice.AddSystemRecord;
 import com.sun.mdm.index.webservice.Search;
@@ -15,7 +15,6 @@ public class CustomerRestImpl implements CustomerRest{
 	@Produce(uri = "direct:uploadToQueue")
 	private ProducerTemplate template;
 	
-	@Override
 	public String addCustomer(Customer toAdd) {
 		// TODO Auto-generated method stub
 		
@@ -25,9 +24,9 @@ public class CustomerRestImpl implements CustomerRest{
 		
 		System.out.println("\n**********\nADD REST METHOD CALLED\n**********\n");
 		return "";
+		
 	}
 	
-	@Override
 	public String updateCustomer(Customer toUpdate) {
 		// TODO Auto-generated method stub
 		
@@ -39,7 +38,6 @@ public class CustomerRestImpl implements CustomerRest{
 		return "";
 	}
 
-	@Override
 	public String searchCustomer(Customer toAdd) {
 		// TODO Auto-generated method stub
 		

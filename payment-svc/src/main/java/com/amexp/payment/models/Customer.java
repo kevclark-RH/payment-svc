@@ -1,5 +1,14 @@
-package com.payment.models;
+package com.amexp.payment.models;
 
+import java.io.ByteArrayInputStream;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+
+import org.apache.camel.Body;
+import org.apache.camel.Exchange;
 import org.apache.camel.dataformat.bindy.annotation.CsvRecord;
 import org.apache.camel.dataformat.bindy.annotation.DataField;
 
@@ -27,6 +36,8 @@ public class Customer {
     @DataField(pos = 10)
     private String phone;
 
+    private static JAXBContext jContext;
+    
     public String getCompanyName() {
         return companyName;
     }
@@ -107,6 +118,18 @@ public class Customer {
         this.phone = phone;
     }
 
+    public static void convertFromJson(@Body Exchange ex) throws JAXBException{
+    	
+    	System.out.println("MESSAGE RECEIVED \t"+ex.getIn().getBody().toString());
+    	
+        jContext = JAXBContext.newInstance(Customer.class);
+        
+    	Unmarshaller unmarshaller = jContext.createUnmarshaller();
+    	
+    	Customer tmp = (Customer)unmarshaller.unmarshal(new ByteArrayInputStream(ex.getIn().getBody().toString().getBytes()));
+    	
+    	
+    }
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

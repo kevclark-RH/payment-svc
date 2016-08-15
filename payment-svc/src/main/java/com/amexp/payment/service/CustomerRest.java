@@ -1,8 +1,8 @@
-package com.payment.service;
+package com.amexp.payment.service;
 
 import javax.ws.rs.*;
 
-import com.payment.models.Customer;
+import com.amexp.payment.models.Customer;
 import com.sun.mdm.index.webservice.AddOrUpdateSystemRecord;
 import com.sun.mdm.index.webservice.AddSystemRecord;
 import com.sun.mdm.index.webservice.Search;

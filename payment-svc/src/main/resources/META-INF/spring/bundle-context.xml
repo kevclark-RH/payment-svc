@@ -26,8 +26,8 @@
 	<import resource="classpath:META-INF/spring/emm-route-context.xml" />
 	<import resource="classpath:META-INF/spring/emm-val-context.xml" />
 	<import resource="classpath:META-INF/spring/subsystemX-context.xml" />
-	<bean id="InitBean" class="com.payment.service.InitBean"
-		init-method="init" />
+	
+	<bean id="InitBean" class="com.amexp.payment.service.InitBean" />
 	<bean class="org.apache.camel.processor.interceptor.Tracer" id="camelTracer">
 		<property name="traceExceptions" value="false" />
 		<property name="traceInterceptors" value="true" />
@@ -37,25 +37,32 @@
 	<bean class="org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider"
 		id="jsonProvider" />
 	<!-- REST ENPOINT IMPLEMENTATION -->
-	<bean class="com.payment.service.CustomerRestImpl" id="customerRestImplBean" />
+	<bean class="com.amexp.payment.service.CustomerRestImpl" id="customerRestImplBean" />
 	<cxf:rsServer address="http://localhost:9192/rest" id="customerRestService"
-		loggingFeatureEnabled="true" serviceClass="com.payment.service.CustomerRestImpl">
+		loggingFeatureEnabled="true" serviceClass="com.amexp.payment.service.CustomerRestImpl">
 		<cxf:providers>
 			<ref bean="jsonProvider" />
 		</cxf:providers>
 	</cxf:rsServer>
 	<cxf:rsClient address="http://localhost:9192/rest" id="customerRestServiceClient"
-		loggingFeatureEnabled="true" serviceClass="com.payment.service.CustomerRest">
+		loggingFeatureEnabled="true" serviceClass="com.amexp.payment.service.CustomerRest">
 		<cxf:providers>
 			<ref bean="jsonProvider" />
 		</cxf:providers>
 	</cxf:rsClient>
 	<camelContext id="camelContext-20bfdf3f-bb50-4ba3-b48d-7299441206a3"
 		trace="true" xmlns="http://camel.apache.org/schema/spring">
+		
+		<routeContextRef ref="emmRoutingContext" />
+		<routeContextRef ref="emmValContext" />
+		<routeContextRef ref="cfeValContext" />
+		<routeContextRef ref="cfeEnrollContext" />
+		<routeContextRef ref="subsystemXContext" />
+		
 		<!-- Direct endpoint that packages an exchange and sends it to the cxfrs 
 			client for http packet packaging -->
 		<route id="_route5">
-			<from id="_from5" uri="direct:callRestEndpoint" />
+			<from id="_from5" uri="direct:callRestFrontEnd" />
 			<log id="_log2"
 				message="\n\n\t DIRECT ENDPOINT RECEIVED EXCHANGE:\t ${body.getClass().toString()}\n\tSETTING HEADERS AND FORWARDING FOR CXFRS CLIENT\n" />
 			<setHeader headerName="Content-Type" id="_setHeader1">
@@ -91,32 +98,27 @@
 				</when>
 			</choice>
 			<log id="_log6"
-				message="\n\n##\n###\n####\nREST CLIENT MESSAGE SENT \n\t${headers}\n\nbody: \t${in.body}\n" />
+				message="\n\n##\n###\n####\nREST CLIENT MESSAGE SENT \n\t${headers}\n\nbody: 
+				\t${in.body}\n" />
 			<to uri="cxfrs:bean:customerRestServiceClient" />
+		
 		</route>
 		<!-- CXFRS server listener that forwards to appropriate Impl method -->
 		<route id="_route1">
 			<from id="_from1"
 				uri="cxfrs:bean:customerRestService?bindingStyle=SimpleConsumer" />
 			<log message="message received ${body}" />
-			<choice>
-				<when>
-					<simple>${header.operationName} == 'postPaymentInstruction'
-					</simple>
-					<to uri="direct:postPaymentInstruction" />
-				</when>
-				<when>
-					<simple>${header.operationName} == 'postSentinel'</simple>
-					<to uri="direct:postSentinel" />
-				</when>
-				<when>
-				<simple>${header.operationName} == 'postEMMRouting'</simple></when>
-				<otherwise>
-					<to uri="direct:emmValidation" />
-				</otherwise>
-			</choice>
-			<to uri="direct:subsystemXCall" />
-			<!-- will need choice().when() to invoke the right method -->
+		</route>
+		<!--<route> <choice> <from uri="" <when> <simple>${header.operationName} 
+			== 'postPaymentInstruction' </simple> <to uri="direct:postPaymentInstruction" 
+			/> </when> <when> <simple>${header.operationName} == 'postSentinel'</simple> 
+			<to uri="direct:postSentinel" /> </when> <when> <simple>${header.operationName} 
+			== 'postEMMRouting'</simple> </when> <otherwise> <to uri="direct:emmValidation" 
+			/> </otherwise> </choice> <to uri="direct:subsystemXCall" /> </route> -->
+		<route id="fireOnce">
+			<from uri="timer:fireOnce?repeatCount=1" />
+			<log message="\n\nTIMER ROUTE FIRING\n\n" />
+			<bean ref="InitBean" method="routeInit" />
 		</route>
 	</camelContext>
 </beans>
