@@ -29,7 +29,7 @@
 			  http://camel.apache.org/schema/spring/camel-spring.xsd">
 
  	<cxf:cxfEndpoint id="personEndpoint"
-                   address="http://localhost:8686/person"
+                   address="http://localhost:8686/PersonEJB"
                    serviceClass="com.sun.mdm.index.webservice.PersonEJBService"
                    wsdlURL="classpath:EMPI_18080_2.wsdl"/>
 </beans>
