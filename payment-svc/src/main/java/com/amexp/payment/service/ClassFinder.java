@@ -1,134 +1,124 @@
 package com.amexp.payment.service;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-import org.apache.cxf.helpers.IOUtils;
-import org.springframework.core.io.VfsResource;
+import org.apache.commons.lang3.StringUtils;
+import org.jboss.vfs.VFSUtils;
+import org.jboss.vfs.VirtualFile;
 
 public class ClassFinder {
-	
+
 	public interface Visitor<T> {
-	    /**
-	     * @return {@code true} if the algorithm should visit more results,
-	     * {@code false} if it should terminate now.
-	     */
-	    public boolean visit(T t);
-	    
-	    public String[] getJarPaths();
-	    
-	    public ClassLoader getClassLoader();
+		/**
+		 * @return {@code true} if the algorithm should visit more results,
+		 *         {@code false} if it should terminate now.
+		 */
+		public boolean visit(T t);
+
+		public ClassLoader getClassLoader();
 	}
-	
-    public static void findClasses(Visitor<String> visitor) {
-        String classpath = System.getProperty("java.class.path");
-        String[] paths = visitor.getJarPaths();
 
-//        String javaHome = System.getProperty("java.home");
-//        File file = new File(javaHome + File.separator + "lib");
-//        if (file.exists()) {
-//            findClasses(file, file, true, visitor);
-//        }
+	public static void findClasses(Visitor<String> visitor) {
 
-        for (String path : paths) {
-        	System.out.println("Path: " + path);
-        	File file = null;
-                InputStream inputStream = visitor.getClassLoader().getResourceAsStream(path);
-                if(inputStream == null){
-                	System.out.println("InputStream Null");
-                	continue;
-                }
-                try {
-					file = stream2file(inputStream);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+		try {
+			System.out.println("ClassLoader type: " + visitor.getClassLoader().getClass().getName());
+			//using string comparison instead of instance of so I do not have to import the a version of the jboss modules
+			if (!(visitor.getClassLoader().getClass().getName().equalsIgnoreCase("org.jboss.modules.ModuleClassLoader"))) {
+				System.out.println("ClassLoader is not JBoss EAP Module Classloader. Will not find classes.");
+				return;
+			}
+			ArrayList<URL> URLs = Collections.list(visitor.getClassLoader().getResources(""));
+			System.out.println("URLs count: " + URLs.size());
+			for (URL aURL : URLs) {
+				if (StringUtils.contains(aURL.toString(), ".jar")) {
+					URLConnection conn = aURL.openConnection();
+					VirtualFile vf = (VirtualFile) conn.getContent();
+
+					String jarVFSPath = VFSUtils.getPhysicalURL(vf).getFile();
+
+					int idxJarExt = StringUtils.lastIndexOf(jarVFSPath, ".jar");
+					int idxSlashAfterJar = StringUtils.indexOf(jarVFSPath, "/", idxJarExt);
+					int idxSlashBeforeJar = StringUtils.lastIndexOf(jarVFSPath.substring(0, idxJarExt), "/");
+
+					String jarFileName2 = jarVFSPath.substring(idxSlashBeforeJar + 1, idxJarExt + 4);
+					String jarFolder = jarVFSPath.substring(0, idxSlashAfterJar);
+					String jarFullPath = jarFolder + "/" + jarFileName2;
+
+					File file = new File(jarFullPath);
+					// System.out.println("File Full Path: " + jarFullPath);
+
+					if (file != null && file.exists()) {
+						findClasses(file, file, true, visitor);
+					} else {
+						System.out.println("File does not exist.");
+					}
+
 				}
-                
-            
-            if (file != null && file.exists()) {
-                findClasses(file, file, true, visitor);
-            }else{
-            	System.out.println("File does not exist.");
-            }
-        }
-    }
 
-    private static boolean findClasses(File root, File file, boolean includeJars, Visitor<String> visitor) {
-        if (file.isDirectory()) {
-            for (File child : file.listFiles()) {
-                if (!findClasses(root, child, includeJars, visitor)) {
-                    return false;
-                }
-            }
-        } else {
-        	System.out.println(file.getName().toLowerCase());
-            if (file.getName().toLowerCase().endsWith(".jar") && includeJars) {
-            	System.out.println("found jar: " + file.getName().toLowerCase());
-                JarFile jar = null;
-                try {
-                    jar = new JarFile(file);
-                
-                if (jar != null) {
-                    Enumeration<JarEntry> entries = jar.entries();
-                    while (entries.hasMoreElements()) {
-                        JarEntry entry = entries.nextElement();
-                        String name = entry.getName();
-                        int extIndex = name.lastIndexOf(".class");
-                        if (extIndex > 0) {
-                            if (!visitor.visit(name.substring(0, extIndex).replace("/", "."))) {
-                                jar.close();
-                            	return false;
-                            }
-                        }
-                    }
-                }
-                jar.close();
-                }
-                
-                
-                catch (Exception ex) {
-                	System.out.println("unable to visit " + file.getName().toLowerCase());
-                }
-            }
-            else if (file.getName().toLowerCase().endsWith(".class")) {
-                if (!visitor.visit(createClassName(root, file))) {
-                    return false;
-                }
-            }
-        }
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			return;
+		}
+	}
 
-        return true;
-    }
+	private static boolean findClasses(File root, File file, boolean includeJars, Visitor<String> visitor) {
+		if (file.isDirectory()) {
+			for (File child : file.listFiles()) {
+				if (!findClasses(root, child, includeJars, visitor)) {
+					return false;
+				}
+			}
+		} else {
+			if (file.getName().toLowerCase().endsWith(".jar") && includeJars) {
+				JarFile jar = null;
+				try {
+					jar = new JarFile(file);
+					if (jar != null) {
+						Enumeration<JarEntry> entries = jar.entries();
+						while (entries.hasMoreElements()) {
+							JarEntry entry = entries.nextElement();
+							String name = entry.getName();
+							int extIndex = name.lastIndexOf(".class");
+							if (extIndex > 0) {
+								if (!visitor.visit(name.substring(0, extIndex).replace("/", "."))) {
+									jar.close();
+									return false;
+								}
+							}
+						}
+					}
+					jar.close();
+				} catch (Exception ex) {
+					System.out.println("unable to visit " + file.getName().toLowerCase());
+				}
+			} else if (file.getName().toLowerCase().endsWith(".class")) {
+				if (!visitor.visit(createClassName(root, file))) {
+					return false;
+				}
+			}
+		}
 
-    private static String createClassName(File root, File file) {
-        StringBuffer sb = new StringBuffer();
-        String fileName = file.getName();
-        sb.append(fileName.substring(0, fileName.lastIndexOf(".class")));
-        file = file.getParentFile();
-        while (file != null && !file.equals(root)) {
-            sb.insert(0, '.').insert(0, file.getName());
-            file = file.getParentFile();
-        }
-        return sb.toString();
-    }
-    
-    public static final String PREFIX = "stream2file";
-    public static final String SUFFIX = ".tmp";
+		return true;
+	}
 
-    public static File stream2file (InputStream in) throws IOException {
-        final File tempFile = File.createTempFile(PREFIX, SUFFIX);
-        tempFile.deleteOnExit();
-        try (FileOutputStream out = new FileOutputStream(tempFile)) {
-            IOUtils.copy(in, out);
-        }
-        System.out.print("Created File");
-        return tempFile;
-    }
-    
+	private static String createClassName(File root, File file) {
+		StringBuffer sb = new StringBuffer();
+		String fileName = file.getName();
+		sb.append(fileName.substring(0, fileName.lastIndexOf(".class")));
+		file = file.getParentFile();
+		while (file != null && !file.equals(root)) {
+			sb.insert(0, '.').insert(0, file.getName());
+			file = file.getParentFile();
+		}
+		return sb.toString();
+	}
 }
