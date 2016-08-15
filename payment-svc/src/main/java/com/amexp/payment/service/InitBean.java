@@ -1,6 +1,7 @@
 package com.amexp.payment.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import org.apache.camel.Body;
 import org.apache.camel.Exchange;
@@ -56,7 +57,7 @@ public class InitBean {
 		}
 		
 		public void printLoadedClasses(){
-			loadedClasses.sort(String.CASE_INSENSITIVE_ORDER);
+			Collections.sort(loadedClasses, String.CASE_INSENSITIVE_ORDER);
 			for(String className : loadedClasses){
 				System.out.println(className);
 			}
