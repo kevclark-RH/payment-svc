@@ -15,4 +15,5 @@
 			<module name="org.jboss.logging" />
 		</exclusions>
 	</deployment>
+	
 </jboss-deployment-structure>

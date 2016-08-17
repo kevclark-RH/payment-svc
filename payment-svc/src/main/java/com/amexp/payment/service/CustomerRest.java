@@ -11,8 +11,9 @@ import com.sun.mdm.index.webservice.AddOrUpdateSystemRecord;
 import com.sun.mdm.index.webservice.AddOrUpdateSystemRecord;
 import com.sun.mdm.index.webservice.AddOrUpdateSystemRecord;
 
-@ApplicationPath("/PersonEJB/")
-@Path("/PersonEJB/")
+
+@Produces("application/json") 
+@Path("/PersonEJB")
 public interface CustomerRest {
 
 	 @POST @Path("/addCustomer") @Consumes("application/json")

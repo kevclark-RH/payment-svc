@@ -1,4 +1,4 @@
-package org.amexp.payment.test;
+
 
 
 import static org.junit.Assert.assertTrue;
@@ -82,7 +82,7 @@ public class TestRestFrontEnd extends CamelSpringTestSupport{
 	@Override
 	protected AbstractApplicationContext createApplicationContext() {
 		// TODO Auto-generated method stub
-		return new ClassPathXmlApplicationContext("classpath:META-INF/spring/bundle-context.xml");
+		return new ClassPathXmlApplicationContext("classpath:WEB-INF/web.xml");
 	}
 
 }
