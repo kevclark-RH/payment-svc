@@ -11,11 +11,14 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
 import org.jboss.vfs.VFSUtils;
 import org.jboss.vfs.VirtualFile;
 
 public class ClassFinder {
 
+	static Logger logger = Logger.getLogger(ClassFinder.class);
+	
 	public interface Visitor<T> {
 		/**
 		 * @return {@code true} if the algorithm should visit more results,
@@ -29,14 +32,14 @@ public class ClassFinder {
 	public static void findClasses(Visitor<String> visitor) {
 
 		try {
-			System.out.println("ClassLoader type: " + visitor.getClassLoader().getClass().getName());
+			logger.info("ClassLoader type: " + visitor.getClassLoader().getClass().getName());
 			//using string comparison instead of instance of so I do not have to import the a version of the jboss modules
 			if (!(visitor.getClassLoader().getClass().getName().equalsIgnoreCase("org.jboss.modules.ModuleClassLoader"))) {
-				System.out.println("ClassLoader is not JBoss EAP Module Classloader. Will not find classes.");
+				logger.info("ClassLoader is not JBoss EAP Module Classloader. Will not find classes.");
 				return;
 			}
+			
 			ArrayList<URL> URLs = Collections.list(visitor.getClassLoader().getResources(""));
-			System.out.println("URLs count: " + URLs.size());
 			for (URL aURL : URLs) {
 				if (StringUtils.contains(aURL.toString(), ".jar")) {
 					URLConnection conn = aURL.openConnection();
@@ -53,16 +56,13 @@ public class ClassFinder {
 					String jarFullPath = jarFolder + "/" + jarFileName2;
 
 					File file = new File(jarFullPath);
-					// System.out.println("File Full Path: " + jarFullPath);
 
 					if (file != null && file.exists()) {
 						findClasses(file, file, true, visitor);
 					} else {
-						System.out.println("File does not exist.");
+						logger.error("File does not exist.");
 					}
-
 				}
-
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -98,7 +98,7 @@ public class ClassFinder {
 					}
 					jar.close();
 				} catch (Exception ex) {
-					System.out.println("unable to visit " + file.getName().toLowerCase());
+					logger.error("Unable to visit " + file.getName().toLowerCase());
 				}
 			} else if (file.getName().toLowerCase().endsWith(".class")) {
 				if (!visitor.visit(createClassName(root, file))) {
@@ -106,7 +106,6 @@ public class ClassFinder {
 				}
 			}
 		}
-
 		return true;
 	}
 
