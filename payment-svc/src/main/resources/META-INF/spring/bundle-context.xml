@@ -39,7 +39,7 @@
 	<bean class="com.amexp.payment.service.CustomerRestImpl" id="customerRestImplBean" />
 	
 	
-	<cxf:rsServer address="http://localhost:9192/rest/testAPP/" id="customerRestService"
+	<cxf:rsServer address="http://localhost:9100/rest/testAPP/" id="customerRestService"
 		loggingFeatureEnabled="true" serviceClass="com.amexp.payment.service.CustomerRestImpl">
 		<cxf:providers>
 			<ref bean="jsonProvider" />
