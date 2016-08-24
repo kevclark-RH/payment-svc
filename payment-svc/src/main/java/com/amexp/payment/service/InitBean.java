@@ -2,29 +2,31 @@ package com.amexp.payment.service;
 
 import java.util.ArrayList;
 import java.util.Collections;
-
 import org.apache.camel.Body;
 import org.apache.camel.Exchange;
+import org.apache.log4j.Logger;
 
 import com.amexp.payment.service.ClassFinder.Visitor;
 
-
-
 public class InitBean {
 
+	static Logger logger = Logger.getLogger(InitBean.class);
+	
 	public void routeInit(@Body Exchange ex){
 		long startTime = System.currentTimeMillis();
 		ClassLoader classLoader = ex.getContext().getApplicationContextClassLoader();
 		if(classLoader == null){
-			System.out.println("ClassLoader is Null.");
+			logger.error("ClassLoader is Null. Ending Route.");
 			return;
 		}
 		ClassLoaderClassFinderVisitor visitor = new ClassLoaderClassFinderVisitor(classLoader);
 		ClassFinder.findClasses(visitor);
 		long endTime = System.currentTimeMillis();
 		long differenceTime = endTime - startTime;
+		
+		//enable to see ordered list of loaded classes.
 		visitor.printLoadedClasses();
-		System.out.println("Loaded " + visitor.getCount() + " classes in " +differenceTime + "ms\n\nNOW TRYING PARENT\n\n");	
+		logger.info("Loaded " + visitor.getCount() + " classes in " +differenceTime + "ms");	
 	}
 
 	private class ClassLoaderClassFinderVisitor implements Visitor<String> {
@@ -40,14 +42,15 @@ public class InitBean {
 		
 		public boolean visit(String t) {
 			try {
+				
 				Class<?> aClass = classLoader.loadClass(t);
 				count++;
 				loadedClasses.add(aClass.getName());
 			}catch(Error e){
-				System.out.println("Error loading a class");
+				logger.error("Error loading a class. This is most likely expected.");
 			}
 			catch (Exception e) {
-				return false;
+				logger.error("Exception loading a class.");
 			}
 			return true;
 		}
@@ -59,7 +62,7 @@ public class InitBean {
 		public void printLoadedClasses(){
 			Collections.sort(loadedClasses, String.CASE_INSENSITIVE_ORDER);
 			for(String className : loadedClasses){
-				System.out.println(className);
+				logger.trace("Loaded Class" + className);
 			}
 		}
 
