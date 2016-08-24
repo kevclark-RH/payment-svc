@@ -39,14 +39,14 @@
 	<bean class="com.amexp.payment.service.CustomerRestImpl" id="customerRestImplBean" />
 	
 	
-	<cxf:rsServer address="http://localhost:9192/rest/testAPP/" id="customerRestService"
+	<cxf:rsServer address="http://localhost:9100/rest/testAPP/" id="customerRestService"
 		loggingFeatureEnabled="true" serviceClass="com.amexp.payment.service.CustomerRestImpl">
 		<cxf:providers>
 			<ref bean="jsonProvider" />
 		</cxf:providers>
 	</cxf:rsServer>
 	
-	<cxf:rsClient address="http://localhost:9192/rest/testAPP/" id="customerRestServiceClient"
+	<cxf:rsClient address="http://localhost:9100/rest/testAPP/" id="customerRestServiceClient"
 		loggingFeatureEnabled="true" serviceClass="com.amexp.payment.service.CustomerRest">
 		<cxf:providers>
 			<ref bean="jsonProvider" />
@@ -65,8 +65,7 @@
 		<!-- CXFRS server listener that forwards to appropriate Impl method -->
 		<route id="_route1">
 			<from id="_from1" uri="cxfrs:bean:customerRestService" />
-			<log
-				message="message received \n\n------------\n\n\n\n\n${body.toString()}\n\n\n-------------\n" />
+			<to uri="log:myLOG:message received \n\n------------\n\n\n\n\n${body.toString()}\n\n\n-------------\n" />
 		</route>
 		<route id="_route2">
 			<from id="_from2" uri="servlet:/rest/PersonEJB/*" />
