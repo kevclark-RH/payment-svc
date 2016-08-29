@@ -17,6 +17,8 @@ import org.junit.Test;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
+
 import com.amexp.payment.models.Customer;
 
 
@@ -77,8 +79,9 @@ public class TestRestFrontEnd extends CamelSpringTestSupport{
 	protected AbstractApplicationContext createApplicationContext() {
 		// TODO Auto-generated method stub
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:META-INF/spring/bundle-context.xml");
-
-		System.setProperty("spring.profiles.active", "test");
+	    ConfigurableEnvironment env = ctx.getEnvironment();
+	    env.setActiveProfiles("test");
+	    ctx.refresh();
 		
 		return ctx;
 	

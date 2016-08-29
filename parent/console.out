@@ -1,0 +1,476 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.amexp.payment:emm-routing:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-resources-plugin is missing. @ line 184, column 15
+[WARNING] 'build.plugins.plugin.version' for org.apache.camel:camel-maven-plugin is missing. @ line 200, column 15
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 175, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.amexp.payment:cfe-enrollment:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-resources-plugin is missing. @ line 184, column 15
+[WARNING] 'build.plugins.plugin.version' for org.apache.camel:camel-maven-plugin is missing. @ line 200, column 15
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 175, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.amexp.payment:emm-validation:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-resources-plugin is missing. @ line 185, column 15
+[WARNING] 'build.plugins.plugin.version' for org.apache.camel:camel-maven-plugin is missing. @ line 201, column 15
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 176, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.amexp.payment:cfe-validation:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-resources-plugin is missing. @ line 185, column 15
+[WARNING] 'build.plugins.plugin.version' for org.apache.camel:camel-maven-plugin is missing. @ line 201, column 15
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 176, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.amexp.payment:subsystemX:jar:0.0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-resources-plugin is missing. @ line 185, column 15
+[WARNING] 'build.plugins.plugin.version' for org.apache.camel:camel-maven-plugin is missing. @ line 201, column 15
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 176, column 15
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.amexp.payment:payment-svc:jar:0.0.1-SNAPSHOT
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.codehaus.jackson:jackson-jaxrs:jar -> version 1.9.0 vs 1.9.12 @ line 169, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.amexp.payment:cfe-enrollment:jar -> duplicate declaration of version 0.0.1-SNAPSHOT @ line 273, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.amexp.payment:cfe-validation:jar -> duplicate declaration of version 0.0.1-SNAPSHOT @ line 278, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.amexp.payment:emm-routing:jar -> duplicate declaration of version 0.0.1-SNAPSHOT @ line 283, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.amexp.payment:emm-validation:jar -> duplicate declaration of version 0.0.1-SNAPSHOT @ line 288, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.amexp.payment:subsystemX:jar -> duplicate declaration of version 0.0.1-SNAPSHOT @ line 293, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.camel:camel-core:jar -> duplicate declaration of version 2.17.0 @ line 309, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.camel:camel-spring:jar -> duplicate declaration of version 2.17.0 @ line 314, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.camel:camel-servlet:jar -> duplicate declaration of version 2.17.0 @ line 319, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.camel:camel-http:jar -> duplicate declaration of version 2.17.0 @ line 324, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.camel:camel-cxf:jar -> duplicate declaration of version 2.17.0 @ line 329, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.camel:camel-test-spring:jar -> duplicate declaration of version 2.17.0 @ line 344, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.camel:camel-test:jar -> duplicate declaration of version 2.17.0 @ line 350, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.camel:camel-jdbc:jar -> duplicate declaration of version 2.17.0 @ line 356, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.camel:camel-sql:jar -> duplicate declaration of version 2.17.0 @ line 361, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.camel:camel-mybatis:jar -> duplicate declaration of version 2.17.0 @ line 371, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.camel:camel-bindy:jar -> duplicate declaration of version 2.17.0 @ line 376, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.camel:camel-jackson:jar -> duplicate declaration of version 2.17.0 @ line 381, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.codehaus.jackson:jackson-jaxrs:jar -> version 1.9.0 vs 1.9.12 @ line 386, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.codehaus.jackson:jackson-xc:jar -> version 1.9.0 vs 1.9.12 @ line 391, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: com.fasterxml.jackson.core:jackson-databind:jar -> duplicate declaration of version 2.2.2 @ line 396, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.mybatis:mybatis:jar -> duplicate declaration of version 3.2.8 @ line 401, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.springframework:spring-test:jar -> duplicate declaration of version 4.3.2.RELEASE @ line 426, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.springframework:spring-web:jar -> duplicate declaration of version 4.2.0.RELEASE @ line 431, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: commons-dbcp:commons-dbcp:jar -> duplicate declaration of version 1.4 @ line 441, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.easymock:easymock:jar -> duplicate declaration of version 3.2 @ line 469, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: io.swagger:swagger-annotations:jar -> duplicate declaration of version 1.5.0 @ line 474, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.commons:commons-lang3:jar -> duplicate declaration of version 3.4 @ line 479, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.bouncycastle:bcprov-jdk15on:jar -> duplicate declaration of version 1.52 @ line 484, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.mockito:mockito-all:jar -> duplicate declaration of version 1.10.19 @ line 489, column 15
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-resources-plugin is missing. @ line 746, column 12
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 739, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] parent project for payment application
+[INFO] Integration pojos used for coordinating work with backend services
+[INFO] EMM routing integration package
+[INFO] CFE enrollment integration package
+[INFO] EMM validation integration package
+[INFO] CFE validation integration package
+[INFO] SubsystemX integration package
+[INFO] Payment-svc jar that holds camel context
+[INFO] Payment-War
+[INFO] Payment ear packaged for deployment
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building parent project for payment application 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ payment-parent ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ payment-parent ---
+[INFO] Installing /home/kevclark/AMEX/seda-direct/payment-svc/parent/pom.xml to /home/kevclark/.m2/repository/com/amexp/payment/payment-parent/0.0.1-SNAPSHOT/payment-parent-0.0.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Integration pojos used for coordinating work with backend services 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ integ-POJO ---
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ integ-POJO ---
+[INFO] Installing /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/pom.xml to /home/kevclark/.m2/repository/com/amexp/payment/integ-POJO/0.0.1-SNAPSHOT/integ-POJO-0.0.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building EMM routing integration package 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ emm-routing ---
+[INFO] Deleting /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/emm-routing/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ emm-routing ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ emm-routing ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ emm-routing ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/emm-routing/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ emm-routing ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ emm-routing ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ emm-routing ---
+[INFO] Building jar: /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/emm-routing/target/emm-routing-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ emm-routing ---
+[INFO] Installing /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/emm-routing/target/emm-routing-0.0.1-SNAPSHOT.jar to /home/kevclark/.m2/repository/com/amexp/payment/emm-routing/0.0.1-SNAPSHOT/emm-routing-0.0.1-SNAPSHOT.jar
+[INFO] Installing /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/emm-routing/pom.xml to /home/kevclark/.m2/repository/com/amexp/payment/emm-routing/0.0.1-SNAPSHOT/emm-routing-0.0.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building CFE enrollment integration package 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ cfe-enrollment ---
+[INFO] Deleting /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/cfe-enrollment/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ cfe-enrollment ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ cfe-enrollment ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ cfe-enrollment ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/cfe-enrollment/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ cfe-enrollment ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ cfe-enrollment ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ cfe-enrollment ---
+[INFO] Building jar: /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/cfe-enrollment/target/cfe-enrollment-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ cfe-enrollment ---
+[INFO] Installing /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/cfe-enrollment/target/cfe-enrollment-0.0.1-SNAPSHOT.jar to /home/kevclark/.m2/repository/com/amexp/payment/cfe-enrollment/0.0.1-SNAPSHOT/cfe-enrollment-0.0.1-SNAPSHOT.jar
+[INFO] Installing /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/cfe-enrollment/pom.xml to /home/kevclark/.m2/repository/com/amexp/payment/cfe-enrollment/0.0.1-SNAPSHOT/cfe-enrollment-0.0.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building EMM validation integration package 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ emm-validation ---
+[INFO] Deleting /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/emm-validation/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ emm-validation ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ emm-validation ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ emm-validation ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/emm-validation/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ emm-validation ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ emm-validation ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ emm-validation ---
+[INFO] Building jar: /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/emm-validation/target/emm-validation-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ emm-validation ---
+[INFO] Installing /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/emm-validation/target/emm-validation-0.0.1-SNAPSHOT.jar to /home/kevclark/.m2/repository/com/amexp/payment/emm-validation/0.0.1-SNAPSHOT/emm-validation-0.0.1-SNAPSHOT.jar
+[INFO] Installing /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/emm-validation/pom.xml to /home/kevclark/.m2/repository/com/amexp/payment/emm-validation/0.0.1-SNAPSHOT/emm-validation-0.0.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building CFE validation integration package 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ cfe-validation ---
+[INFO] Deleting /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/cfe-validation/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ cfe-validation ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ cfe-validation ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ cfe-validation ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/cfe-validation/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ cfe-validation ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ cfe-validation ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ cfe-validation ---
+[INFO] Building jar: /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/cfe-validation/target/cfe-validation-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ cfe-validation ---
+[INFO] Installing /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/cfe-validation/target/cfe-validation-0.0.1-SNAPSHOT.jar to /home/kevclark/.m2/repository/com/amexp/payment/cfe-validation/0.0.1-SNAPSHOT/cfe-validation-0.0.1-SNAPSHOT.jar
+[INFO] Installing /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/cfe-validation/pom.xml to /home/kevclark/.m2/repository/com/amexp/payment/cfe-validation/0.0.1-SNAPSHOT/cfe-validation-0.0.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building SubsystemX integration package 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ subsystemX ---
+[INFO] Deleting /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/subsystemX/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ subsystemX ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ subsystemX ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ subsystemX ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/subsystemX/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ subsystemX ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ subsystemX ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ subsystemX ---
+[INFO] Building jar: /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/subsystemX/target/subsystemX-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ subsystemX ---
+[INFO] Installing /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/subsystemX/target/subsystemX-0.0.1-SNAPSHOT.jar to /home/kevclark/.m2/repository/com/amexp/payment/subsystemX/0.0.1-SNAPSHOT/subsystemX-0.0.1-SNAPSHOT.jar
+[INFO] Installing /home/kevclark/AMEX/seda-direct/payment-svc/integ-POJO/subsystemX/pom.xml to /home/kevclark/.m2/repository/com/amexp/payment/subsystemX/0.0.1-SNAPSHOT/subsystemX-0.0.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Payment-svc jar that holds camel context 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ payment-svc ---
+[INFO] Deleting /home/kevclark/AMEX/seda-direct/payment-svc/payment-svc/target
+[INFO] 
+[INFO] --- cxf-codegen-plugin:3.0.5:wsdl2java (generate-sources) @ payment-svc ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ payment-svc ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 10 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ payment-svc ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 200 source files to /home/kevclark/AMEX/seda-direct/payment-svc/payment-svc/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ payment-svc ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ payment-svc ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 1 source file to /home/kevclark/AMEX/seda-direct/payment-svc/payment-svc/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ payment-svc ---
+[INFO] Surefire report directory: /home/kevclark/AMEX/seda-direct/payment-svc/payment-svc/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.amexp.payment.test.TestRestFrontEnd
+2016-08-29 13:17:49,174 [main           ] INFO  TestRestFrontEnd               - ********************************************************************************
+2016-08-29 13:17:49,175 [main           ] INFO  TestRestFrontEnd               - Testing: testCamelRoute(org.amexp.payment.test.TestRestFrontEnd)
+2016-08-29 13:17:49,175 [main           ] INFO  TestRestFrontEnd               - ********************************************************************************
+2016-08-29 13:17:49,303 [main           ] INFO  ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2c96d430: startup date [Mon Aug 29 13:17:49 PDT 2016]; root of context hierarchy
+2016-08-29 13:17:49,340 [main           ] INFO  XmlBeanDefinitionReader        - Loading XML bean definitions from class path resource [META-INF/spring/bundle-context.xml]
+2016-08-29 13:17:50,161 [main           ] INFO  XmlBeanDefinitionReader        - Loading XML bean definitions from class path resource [META-INF/spring/camel-cxf.xml]
+2016-08-29 13:17:50,497 [main           ] INFO  XmlBeanDefinitionReader        - Loading XML bean definitions from class path resource [META-INF/spring/env_properties.xml]
+2016-08-29 13:17:50,514 [main           ] INFO  XmlBeanDefinitionReader        - Loading XML bean definitions from class path resource [META-INF/spring/cfe-enroll-context.xml]
+2016-08-29 13:17:51,419 [main           ] INFO  XmlBeanDefinitionReader        - Loading XML bean definitions from class path resource [META-INF/spring/cfe-val-context.xml]
+2016-08-29 13:17:51,468 [main           ] INFO  XmlBeanDefinitionReader        - Loading XML bean definitions from class path resource [META-INF/spring/emm-route-context.xml]
+2016-08-29 13:17:51,514 [main           ] INFO  XmlBeanDefinitionReader        - Loading XML bean definitions from class path resource [META-INF/spring/emm-val-context.xml]
+2016-08-29 13:17:51,564 [main           ] INFO  XmlBeanDefinitionReader        - Loading XML bean definitions from class path resource [META-INF/spring/subsystemX-context.xml]
+2016-08-29 13:17:51,685 [main           ] INFO  PropertyPlaceholderConfigurer  - Loading properties file from class path resource [payment_eap.properties]
+2016-08-29 13:17:51,943 [main           ] INFO  bstractCamelContextFactoryBean - Using custom Tracer: Tracer
+2016-08-29 13:17:52,019 [main           ] INFO  DefaultTypeConverter           - Loaded 207 type converters
+2016-08-29 13:17:52,366 [main           ] INFO  ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2c96d430: startup date [Mon Aug 29 13:17:52 PDT 2016]; root of context hierarchy
+2016-08-29 13:17:52,367 [main           ] INFO  SpringCamelContext             - Apache Camel 2.17.0 (CamelContext: camelContext-20bfdf3f-bb50-4ba3-b48d-7299441206a3) is shutting down
+2016-08-29 13:17:52,370 [main           ] INFO  SpringCamelContext             - Apache Camel 2.17.0 (CamelContext: camelContext-20bfdf3f-bb50-4ba3-b48d-7299441206a3) uptime 
+2016-08-29 13:17:52,373 [main           ] INFO  SpringCamelContext             - Apache Camel 2.17.0 (CamelContext: camelContext-20bfdf3f-bb50-4ba3-b48d-7299441206a3) is shutdown in 0.003 seconds
+2016-08-29 13:17:52,376 [main           ] INFO  XmlBeanDefinitionReader        - Loading XML bean definitions from class path resource [META-INF/spring/bundle-context.xml]
+2016-08-29 13:17:52,679 [main           ] INFO  XmlBeanDefinitionReader        - Loading XML bean definitions from class path resource [META-INF/spring/camel-cxf.xml]
+2016-08-29 13:17:52,959 [main           ] INFO  XmlBeanDefinitionReader        - Loading XML bean definitions from class path resource [META-INF/spring/env_properties.xml]
+2016-08-29 13:17:52,965 [main           ] INFO  XmlBeanDefinitionReader        - Loading XML bean definitions from class path resource [META-INF/spring/cfe-enroll-context.xml]
+2016-08-29 13:17:53,248 [main           ] INFO  XmlBeanDefinitionReader        - Loading XML bean definitions from class path resource [META-INF/spring/cfe-val-context.xml]
+2016-08-29 13:17:53,280 [main           ] INFO  XmlBeanDefinitionReader        - Loading XML bean definitions from class path resource [META-INF/spring/emm-route-context.xml]
+2016-08-29 13:17:53,319 [main           ] INFO  XmlBeanDefinitionReader        - Loading XML bean definitions from class path resource [META-INF/spring/emm-val-context.xml]
+2016-08-29 13:17:53,353 [main           ] INFO  XmlBeanDefinitionReader        - Loading XML bean definitions from class path resource [META-INF/spring/subsystemX-context.xml]
+2016-08-29 13:17:53,426 [main           ] INFO  PropertyPlaceholderConfigurer  - Loading properties file from class path resource [payment_test.properties]
+2016-08-29 13:17:53,465 [main           ] INFO  bstractCamelContextFactoryBean - Using custom Tracer: Tracer
+2016-08-29 13:17:53,480 [main           ] INFO  DefaultTypeConverter           - Loaded 207 type converters
+2016-08-29 13:17:53,700 [main           ] INFO  SpringCamelContext             - Apache Camel 2.17.0 (CamelContext: camelContext-20bfdf3f-bb50-4ba3-b48d-7299441206a3) is starting
+2016-08-29 13:17:53,700 [main           ] INFO  SpringCamelContext             - Tracing is enabled on CamelContext: camelContext-20bfdf3f-bb50-4ba3-b48d-7299441206a3
+2016-08-29 13:17:53,700 [main           ] INFO  ManagedManagementStrategy      - JMX is enabled
+2016-08-29 13:17:53,846 [main           ] INFO  DefaultRuntimeEndpointRegistry - Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2016-08-29 13:17:53,953 [main           ] INFO  SpringCamelContext             - AllowUseOriginalMessage is enabled. If access to the original message is not needed, then its recommended to turn this option off as it may improve performance.
+2016-08-29 13:17:53,953 [main           ] INFO  SpringCamelContext             - StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2016-08-29 13:17:54,063 [main           ] INFO  ServerImpl                     - Setting the server's publish address to be http://localhost:9080/rest
+2016-08-29 13:17:54,117 [main           ] INFO  SpringCamelContext             - Route: subsystemX_route started and consuming from: Endpoint[direct://subsystemXCall]
+2016-08-29 13:17:54,118 [main           ] INFO  SpringCamelContext             - Route: cfe_enroll_route started and consuming from: Endpoint[direct://cfeEnrollmenmt]
+2016-08-29 13:17:54,119 [main           ] INFO  SpringCamelContext             - Route: cfe_validation_route started and consuming from: Endpoint[direct://cfeValidation]
+2016-08-29 13:17:54,120 [main           ] INFO  SpringCamelContext             - Route: emm_val_route started and consuming from: Endpoint[direct://emmValidation]
+2016-08-29 13:17:54,121 [main           ] INFO  SpringCamelContext             - Route: emm_routing_route started and consuming from: Endpoint[direct://emmRouting]
+2016-08-29 13:17:54,139 [main           ] INFO  Server                         - jetty-8.1.15.v20140411
+2016-08-29 13:17:54,159 [main           ] INFO  AbstractConnector              - Started SelectChannelConnector@localhost:9080
+2016-08-29 13:17:54,171 [main           ] INFO  SpringCamelContext             - Route: _route1 started and consuming from: Endpoint[cxfrs://bean:customerRestService]
+2016-08-29 13:17:54,172 [main           ] INFO  SpringCamelContext             - Route: fireOnce started and consuming from: Endpoint[timer://fireOnce?repeatCount=1]
+2016-08-29 13:17:54,174 [main           ] INFO  SpringCamelContext             - Total 7 routes, of which 7 are started.
+2016-08-29 13:17:54,174 [main           ] INFO  SpringCamelContext             - Apache Camel 2.17.0 (CamelContext: camelContext-20bfdf3f-bb50-4ba3-b48d-7299441206a3) started in 0.474 seconds
+
+
+STARTING TESTING
+
+
+
+
+
+
+RUNNING testCamelRoute() 
+
+
+
+
+2016-08-29 13:17:54,463 [main           ] INFO  LoggingOutInterceptor          - Outbound Message
+---------------------------
+ID: 1
+Address: http://localhost:9080/rest/PersonEJB/addCustomer
+Http-Method: POST
+Content-Type: application/json
+Headers: {Accept=[application/json], breadcrumbId=[ID-kevclark-45133-1472501871802-1-1], Content-Type=[application/json]}
+Payload: {"companyName":"AMEX","region":"SW","active":false,"firstName":"Andy","lastName":"Reed","streetAddr":null,"city":null,"state":"Arizona","zip":"44747","phone":"3847474789"}
+--------------------------------------
+2016-08-29 13:17:54,517 [tp1015329275-14] INFO  LoggingInInterceptor           - Inbound Message
+----------------------------
+ID: 2
+Address: http://localhost:9080/rest/PersonEJB/addCustomer
+Encoding: ISO-8859-1
+Http-Method: POST
+Content-Type: application/json
+Headers: {Accept=[application/json], breadcrumbId=[ID-kevclark-45133-1472501871802-1-1], Cache-Control=[no-cache], connection=[keep-alive], Content-Length=[171], content-type=[application/json], Host=[localhost:9080], Pragma=[no-cache], User-Agent=[Apache CXF 3.0.5]}
+Payload: {"companyName":"AMEX","region":"SW","active":false,"firstName":"Andy","lastName":"Reed","streetAddr":null,"city":null,"state":"Arizona","zip":"44747","phone":"3847474789"}
+--------------------------------------
+2016-08-29 13:17:54,553 [tp1015329275-14] ERROR messages                       - ID-kevclark-45133-1472501871802-1-4 >>> (_route1) from(cxfrs://bean:customerRestService) --> log://myLOG:message%20received%20%5Cn%5Cn------------%5Cn%5Cn%5Cn%5Cn%5Cn$%7Bbody.toString()%7D%5Cn%5Cn%5Cn-------------%5Cn <<< Pattern:InOut, Headers:{Accept=application/json, breadcrumbId=ID-kevclark-45133-1472501871802-1-1, Cache-Control=no-cache, CamelAcceptContentType=application/json, CamelCxfMessage={org.apache.cxf.jaxrs.model.OperationResourceInfoStack=[org.apache.cxf.jaxrs.model.MethodInvocationInfo@14881f79], org.apache.cxf.message.Message.PROTOCOL_HEADERS={Accept=[application/json], breadcrumbId=[ID-kevclark-45133-1472501871802-1-1], Cache-Control=[no-cache], connection=[keep-alive], Content-Length=[171], content-type=[application/json], Host=[localhost:9080], Pragma=[no-cache], User-Agent=[Apache CXF 3.0.5]}, org.apache.cxf.interceptor.LoggingMessage.ID=2, path_to_match_slash=/PersonEJB/addCustomer, http.service.redirection=null, HTTP_CONTEXT_MATCH_STRATEGY=stem, org.apache.cxf.request.url=http://localhost:9080/rest/PersonEJB/addCustomer, org.apache.cxf.request.uri=/rest/PersonEJB/addCustomer, org.apache.cxf.resource.method=public java.lang.String com.amexp.payment.service.CustomerRestImpl.addCustomer(com.amexp.payment.models.Customer), HTTP.REQUEST=(POST /rest/PersonEJB/addCustomer)@1959414646 org.eclipse.jetty.server.Request@74ca4b76, HTTP.CONFIG=null, org.apache.cxf.transport.https.CertConstraints=null, Accept=application/json, org.apache.cxf.message.Message.PATH_INFO=/rest/PersonEJB/addCustomer, org.apache.cxf.message.Message.BASE_PATH=/rest, org.apache.cxf.continuations.ContinuationProvider=org.apache.cxf.transport.http_jetty.continuations.JettyContinuationProvider@d206be1, org.apache.cxf.message.Message.IN_INTERCEPTORS=[org.apache.cxf.transport.https.CertConstraintsInterceptor@4b8a8782], org.apache.cxf.message.Message.ENCODING=ISO-8859-1, org.apache.cxf.message.Message.QUERY_STRING=null, HTTP.RESPONSE=HTTP/1.1 200 
+
+, org.apache.cxf.security.SecurityContext=org.apache.cxf.transport.http.AbstractHTTPDestination$2@73c68e8c, org.apache.cxf.request.method=POST, org.apache.cxf.async.post.response.dispatch=true, org.apache.cxf.configuration.security.AuthorizationPolicy=null, org.apache.cxf.message.MessageFIXED_PARAMETER_ORDER=false, org.apache.cxf.transport.Destination=org.apache.cxf.transport.http_jetty.JettyHTTPDestination@70b8c4b5, http.base.path=http://localhost:9080, Content-Type=application/json, HTTP.CONTEXT=ServletContext@o.e.j.s.h.ContextHandler{,null}, jaxrs.template.parameters={FINAL_MATCH_GROUP=[/]}}, CamelCxfRsOperationResourceInfoStack=[org.apache.cxf.jaxrs.model.MethodInvocationInfo@14881f79], CamelCxfRsResponseClass=class java.lang.String, CamelCxfRsResponseGenericType=class java.lang.String, CamelHttpCharacterEncoding=ISO-8859-1, CamelHttpMethod=POST, CamelHttpPath=/PersonEJB/addCustomer, CamelHttpUri=/rest/PersonEJB/addCustomer, connection=keep-alive, Content-Length=171, Content-Type=application/json, Host=localhost:9080, operationName=addCustomer, Pragma=no-cache, User-Agent=Apache CXF 3.0.5}, BodyType:org.apache.cxf.message.MessageContentsList, Body:[Customer [companyName=AMEX, region=SW, active=false, firstName=Andy, lastName=Reed, streetAddr=null, city=null, state=Arizona, zip=44747, phone=3847474789]]
+2016-08-29 13:17:54,557 [tp1015329275-14] INFO  String()}\n\n\n-------------\n - Exchange[ExchangePattern: InOut, BodyType: org.apache.cxf.message.MessageContentsList, Body: [Customer [companyName=AMEX, region=SW, active=false, firstName=Andy, lastName=Reed, streetAddr=null, city=null, state=Arizona, zip=44747, phone=3847474789]]]
+2016-08-29 13:17:54,577 [tp1015329275-14] INFO  LoggingOutInterceptor          - Outbound Message
+---------------------------
+ID: 2
+Response-Code: 200
+Content-Type: application/json
+Headers: {Content-Type=[application/json], Date=[Mon, 29 Aug 2016 20:17:54 GMT]}
+Payload: [{"companyName":"AMEX","region":"SW","active":false,"firstName":"Andy","lastName":"Reed","streetAddr":null,"city":null,"state":"Arizona","zip":"44747","phone":"3847474789"}]
+--------------------------------------
+2016-08-29 13:17:54,581 [main           ] INFO  LoggingInInterceptor           - Inbound Message
+----------------------------
+ID: 1
+Response-Code: 200
+Encoding: ISO-8859-1
+Content-Type: application/json
+Headers: {content-type=[application/json], Date=[Mon, 29 Aug 2016 20:17:54 GMT], Server=[Jetty(8.1.15.v20140411)], transfer-encoding=[chunked]}
+Payload: [{"companyName":"AMEX","region":"SW","active":false,"firstName":"Andy","lastName":"Reed","streetAddr":null,"city":null,"state":"Arizona","zip":"44747","phone":"3847474789"}]
+--------------------------------------
+2016-08-29 13:17:54,582 [main           ] INFO  TestRestFrontEnd               - ********************************************************************************
+2016-08-29 13:17:54,582 [main           ] INFO  TestRestFrontEnd               - Testing done: testCamelRoute(org.amexp.payment.test.TestRestFrontEnd)
+2016-08-29 13:17:54,582 [main           ] INFO  TestRestFrontEnd               - Took: 0.406 seconds (406 millis)
+2016-08-29 13:17:54,582 [main           ] INFO  TestRestFrontEnd               - ********************************************************************************
+2016-08-29 13:17:54,582 [main           ] INFO  SpringCamelContext             - Apache Camel 2.17.0 (CamelContext: camelContext-20bfdf3f-bb50-4ba3-b48d-7299441206a3) is shutting down
+2016-08-29 13:17:54,583 [main           ] INFO  DefaultShutdownStrategy        - Starting to graceful shutdown 7 routes (timeout 10 seconds)
+2016-08-29 13:17:54,585 [ - ShutdownTask] INFO  DefaultShutdownStrategy        - Route: fireOnce shutdown complete, was consuming from: Endpoint[timer://fireOnce?repeatCount=1]
+2016-08-29 13:17:54,586 [ - ShutdownTask] INFO  ContextHandler                 - stopped o.e.j.s.h.ContextHandler{,null}
+2016-08-29 13:17:54,587 [ - ShutdownTask] INFO  DefaultShutdownStrategy        - Route: _route1 shutdown complete, was consuming from: Endpoint[cxfrs://bean:customerRestService]
+2016-08-29 13:17:54,587 [ - ShutdownTask] INFO  DefaultShutdownStrategy        - Route: emm_routing_route shutdown complete, was consuming from: Endpoint[direct://emmRouting]
+2016-08-29 13:17:54,587 [ - ShutdownTask] INFO  DefaultShutdownStrategy        - Route: emm_val_route shutdown complete, was consuming from: Endpoint[direct://emmValidation]
+2016-08-29 13:17:54,588 [ - ShutdownTask] INFO  DefaultShutdownStrategy        - Route: cfe_validation_route shutdown complete, was consuming from: Endpoint[direct://cfeValidation]
+2016-08-29 13:17:54,588 [ - ShutdownTask] INFO  DefaultShutdownStrategy        - Route: cfe_enroll_route shutdown complete, was consuming from: Endpoint[direct://cfeEnrollmenmt]
+2016-08-29 13:17:54,588 [ - ShutdownTask] INFO  DefaultShutdownStrategy        - Route: subsystemX_route shutdown complete, was consuming from: Endpoint[direct://subsystemXCall]
+2016-08-29 13:17:54,588 [main           ] INFO  DefaultShutdownStrategy        - Graceful shutdown of 7 routes completed in 0 seconds
+2016-08-29 13:17:54,594 [main           ] INFO  SpringCamelContext             - Apache Camel 2.17.0 (CamelContext: camelContext-20bfdf3f-bb50-4ba3-b48d-7299441206a3) uptime 0.894 seconds
+2016-08-29 13:17:54,594 [main           ] INFO  SpringCamelContext             - Apache Camel 2.17.0 (CamelContext: camelContext-20bfdf3f-bb50-4ba3-b48d-7299441206a3) is shutdown in 0.012 seconds
+2016-08-29 13:17:54,594 [main           ] INFO  ClassPathXmlApplicationContext - Closing org.springframework.context.support.ClassPathXmlApplicationContext@2c96d430: startup date [Mon Aug 29 13:17:52 PDT 2016]; root of context hierarchy
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.645 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ payment-svc ---
+[INFO] Building jar: /home/kevclark/AMEX/seda-direct/payment-svc/payment-svc/target/payment-svc.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ payment-svc ---
+[INFO] Installing /home/kevclark/AMEX/seda-direct/payment-svc/payment-svc/target/payment-svc.jar to /home/kevclark/.m2/repository/com/amexp/payment/payment-svc/0.0.1-SNAPSHOT/payment-svc-0.0.1-SNAPSHOT.jar
+[INFO] Installing /home/kevclark/AMEX/seda-direct/payment-svc/payment-svc/pom.xml to /home/kevclark/.m2/repository/com/amexp/payment/payment-svc/0.0.1-SNAPSHOT/payment-svc-0.0.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Payment-War 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ payment-war ---
+[INFO] Deleting /home/kevclark/AMEX/seda-direct/payment-svc/payment-war/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ payment-war ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:compile (default-compile) @ payment-war ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ payment-war ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/kevclark/AMEX/seda-direct/payment-svc/payment-war/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:testCompile (default-testCompile) @ payment-war ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ payment-war ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ payment-war ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [payment-war] in [/home/kevclark/AMEX/seda-direct/payment-svc/payment-war/target/PaymentWAR]
+[INFO] Processing war project
+[INFO] Copying webapp resources [/home/kevclark/AMEX/seda-direct/payment-svc/payment-war/src/main/webapp]
+[INFO] Webapp assembled in [191 msecs]
+[INFO] Building war: /home/kevclark/AMEX/seda-direct/payment-svc/payment-war/target/PaymentWAR.war
+[INFO] WEB-INF/web.xml already added, skipping
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ payment-war ---
+[INFO] Installing /home/kevclark/AMEX/seda-direct/payment-svc/payment-war/target/PaymentWAR.war to /home/kevclark/.m2/repository/com/amexp/payment/payment-war/0.0.1-SNAPSHOT/payment-war-0.0.1-SNAPSHOT.war
+[INFO] Installing /home/kevclark/AMEX/seda-direct/payment-svc/payment-war/pom.xml to /home/kevclark/.m2/repository/com/amexp/payment/payment-war/0.0.1-SNAPSHOT/payment-war-0.0.1-SNAPSHOT.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Payment ear packaged for deployment 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ payment-ear ---
+[INFO] Deleting /home/kevclark/AMEX/seda-direct/payment-svc/payment-ear/target
+[INFO] 
+[INFO] --- maven-ear-plugin:2.8:generate-application-xml (default-generate-application-xml) @ payment-ear ---
+[INFO] Generating application.xml
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ payment-ear ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/kevclark/AMEX/seda-direct/payment-svc/payment-ear/src/main/resources
+[INFO] 
+[INFO] --- maven-ear-plugin:2.8:ear (default-ear) @ payment-ear ---
+[INFO] Copying artifact [war:com.amexp.payment:payment-war:0.0.1-SNAPSHOT] to [payment-war-0.0.1-SNAPSHOT.war]
+[INFO] Copy ear sources to /home/kevclark/AMEX/seda-direct/payment-svc/payment-ear/target/payment-ear-0.0.1-SNAPSHOT
+[INFO] Including custom manifest file [/home/kevclark/AMEX/seda-direct/payment-svc/payment-ear/target/payment-ear-0.0.1-SNAPSHOT/META-INF/MANIFEST.MF]
+[INFO] Building jar: /home/kevclark/AMEX/seda-direct/payment-svc/payment-ear/target/payment-ear-0.0.1-SNAPSHOT.ear
