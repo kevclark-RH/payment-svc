@@ -10,14 +10,17 @@ import java.util.Map;
 import org.apache.camel.EndpointInject;
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
+import org.apache.camel.Properties;
 import org.apache.camel.test.spring.CamelSpringTestSupport;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.amexp.payment.models.Customer;
 
 
+@PropertySource("classpath:payment_test.properties")
 public class TestRestFrontEnd extends CamelSpringTestSupport{
 
 	private Customer testCustomer;
@@ -44,7 +47,6 @@ public class TestRestFrontEnd extends CamelSpringTestSupport{
     	
     	
     }
-    
     
 	@Test
 	public void testCamelRoute() throws Exception {
@@ -74,8 +76,15 @@ public class TestRestFrontEnd extends CamelSpringTestSupport{
 	@Override
 	protected AbstractApplicationContext createApplicationContext() {
 		// TODO Auto-generated method stub
-		return new ClassPathXmlApplicationContext("classpath:META-INF/spring/bundle-context.xml");
+		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:META-INF/spring/bundle-context.xml");
+
+		System.setProperty("spring.profiles.active", "test");
+		
+		return ctx;
+	
 	}
+	
+
 
 }
 

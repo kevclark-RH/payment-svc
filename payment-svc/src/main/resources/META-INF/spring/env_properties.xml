@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:http-conf="http://cxf.apache.org/transports/http/configuration"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cxf="http://camel.apache.org/schema/cxf"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+             http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+             http://www.springframework.org/schema/context
+             http://www.springframework.org/schema/context/spring-context.xsd                            
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+        
+	<beans profile="test">
+		<bean
+			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" id="test">
+			<property name="locations">
+				<list>
+					<value>payment_test.properties</value>
+				</list>
+			</property>
+		</bean>
+	</beans>
+	<beans profile="deploy">
+		<bean
+			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" id="deploy">
+			<property name="locations">
+				<list>
+					<value>classpath:payment_eap.properties</value>
+				</list>
+			</property>
+		</bean>
+	</beans>
+</beans>

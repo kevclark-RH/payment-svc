@@ -11,7 +11,7 @@
 	language governing permissions and limitations under the License. -->
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:cxf="http://camel.apache.org/schema/cxf" xmlns:util="http://www.springframework.org/schema/util"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/util
 			  http://www.springframework.org/schema/util/spring-util-3.0.xsd
 			  http://www.springframework.org/schema/beans
@@ -19,13 +19,19 @@
 			  http://camel.apache.org/schema/cxf
 			  http://camel.apache.org/schema/cxf/camel-cxf-spring.xsd
 			  http://camel.apache.org/schema/spring
-			  http://camel.apache.org/schema/spring/camel-spring.xsd">
+			  http://camel.apache.org/schema/spring/camel-spring.xsd
+			  http://www.springframework.org/schema/context 
+      		  http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+
 	<import resource="classpath:META-INF/spring/camel-cxf.xml" />
+	<import resource="classpath:META-INF/spring/env_properties.xml" />
 	<import resource="classpath:META-INF/spring/cfe-enroll-context.xml" />
 	<import resource="classpath:META-INF/spring/cfe-val-context.xml" />
 	<import resource="classpath:META-INF/spring/emm-route-context.xml" />
 	<import resource="classpath:META-INF/spring/emm-val-context.xml" />
 	<import resource="classpath:META-INF/spring/subsystemX-context.xml" />
+	
 	<bean id="InitBean" class="com.amexp.payment.service.InitBean" />
 	<bean class="org.apache.camel.processor.interceptor.Tracer" id="camelTracer">
 		<property name="traceExceptions" value="false" />
@@ -38,15 +44,13 @@
 	<!-- REST ENPOINT IMPLEMENTATION -->
 	<bean class="com.amexp.payment.service.CustomerRestImpl" id="customerRestImplBean" />
 	
-	
-	<cxf:rsServer address="http://localhost:9100/rest/testAPP/" id="customerRestService"
+	<cxf:rsServer address="${server-address}" id="customerRestService"
 		loggingFeatureEnabled="true" serviceClass="com.amexp.payment.service.CustomerRestImpl">
 		<cxf:providers>
 			<ref bean="jsonProvider" />
 		</cxf:providers>
 	</cxf:rsServer>
-	
-	<cxf:rsClient address="http://localhost:9100/rest/testAPP/" id="customerRestServiceClient"
+	<cxf:rsClient address="${client-address}" id="customerRestServiceClient"
 		loggingFeatureEnabled="true" serviceClass="com.amexp.payment.service.CustomerRest">
 		<cxf:providers>
 			<ref bean="jsonProvider" />
@@ -54,7 +58,6 @@
 	</cxf:rsClient>
 	<camelContext id="camelContext-20bfdf3f-bb50-4ba3-b48d-7299441206a3"
 		trace="true" xmlns="http://camel.apache.org/schema/spring">
-		
 		<routeContextRef ref="emmRoutingContext" />
 		<routeContextRef ref="emmValContext" />
 		<routeContextRef ref="cfeValContext" />
@@ -65,17 +68,13 @@
 		<!-- CXFRS server listener that forwards to appropriate Impl method -->
 		<route id="_route1">
 			<from id="_from1" uri="cxfrs:bean:customerRestService" />
-			<to uri="log:myLOG:message received \n\n------------\n\n\n\n\n${body.toString()}\n\n\n-------------\n" />
-		</route>
-		<route id="_route2">
-			<from id="_from2" uri="servlet:/rest/PersonEJB/*" />
-			<log
-				message="message received VIA SERVLET \n\n------------\n\n\n\n\n${body.toString()}\n\n\n-------------\n" />
+			<to
+				uri="log:myLOG:message received \n\n------------\n\n\n\n\n${body.toString()}\n\n\n-------------\n" />
 		</route>
 		<route id="fireOnce">
 			<from uri="timer:fireOnce?repeatCount=1" />
 			<log message="\n\nTIMER ROUTE FIRING\n\n" />
-			<bean ref="InitBean" method="routeInit" />
+			<!-- <bean ref="InitBean" method="routeInit" /> -->
 		</route>
 	</camelContext>
 </beans>
