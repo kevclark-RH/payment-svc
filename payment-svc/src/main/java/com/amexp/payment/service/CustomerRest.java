@@ -12,16 +12,16 @@ import com.sun.mdm.index.webservice.AddOrUpdateSystemRecord;
 import com.sun.mdm.index.webservice.AddOrUpdateSystemRecord;
 
 
-@Produces("application/json") 
+
 @Path("/PersonEJB")
 public interface CustomerRest {
 
-	 @POST @Path("/addCustomer") @Consumes("application/json")
+	 @POST @Path("/addCustomer") @Consumes("application/json") @Produces("application/json")
 	String addCustomer(Customer toAdd);
 
-	 @POST @Path("/updateSystemRecordRequest") @Consumes("application/json")
+	 @POST @Path("/updateSystemRecordRequest") @Consumes("application/json") @Produces("application/json")
 	String updateCustomer(Customer toUpdate);
 	 
-	 @POST @Path("/searchRequest") @Consumes("application/json")
+	 @POST @Path("/searchRequest") @Consumes("application/json") @Produces("application/json")
 	String searchCustomer(Customer toSearchFor);
 }

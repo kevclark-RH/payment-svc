@@ -23,7 +23,7 @@ public class CustomerRestImpl implements CustomerRest{
 		
 		
 		System.out.println("\n**********\nADD REST METHOD CALLED\n**********\n");
-		return "";
+		return toAdd.toString();
 		
 	}
 	

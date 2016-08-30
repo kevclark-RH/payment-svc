@@ -26,7 +26,7 @@
 		<spring.version>4.2.0.RELEASE</spring.version>
 		<camelspring.version>2.17.0</camelspring.version>
 		<brms.version>6.0.3-redhat-6</brms.version>
-		<cxf.version>3.0.5</cxf.version>
+		<cxf.version>3.1.5</cxf.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -223,19 +223,19 @@
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http-jetty</artifactId>
-			<version>3.0.5</version>
+			<version>3.1.5</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http</artifactId>
-			<version>3.0.5</version>
+			<version>3.1.5</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-core</artifactId>
-			<version>3.0.5</version>
+			<version>3.1.5</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
@@ -246,30 +246,23 @@
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-rs-client</artifactId>
-			<version>3.0.5</version>
+			<version>3.1.5</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-frontend-jaxrs -->
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
-			<version>3.0.5</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-frontend-jaxws</artifactId>
-			<version>3.0.5</version>
+			<version>3.1.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-rs-security-oauth</artifactId>
-			<version>3.0.5</version>
+			<version>3.1.5</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-bindings-soap</artifactId>
-			<version>3.0.5</version>
+			<version>3.1.5</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.amexp.payment</groupId>
 			<artifactId>cfe-enrollment</artifactId>
@@ -658,14 +651,12 @@
 			<artifactId>poi</artifactId>
 			<version>3.10-FINAL</version>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/org.apache-extras.camel-extra/camel-jboss6 -->
 		<dependency>
 			<groupId>org.apache-extras.camel-extra</groupId>
 			<artifactId>camel-jboss6</artifactId>
 			<version>2.15.0</version>
 		</dependency>
-
 	</dependencies>
 	<repositories>
 		<repository>
