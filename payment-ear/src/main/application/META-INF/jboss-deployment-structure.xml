@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jboss-deployment-structure>
-	<sub-deployment name="payment-war-0.0.1-SNAPSHOT.war" />
+	<sub-deployment name="payment-war.war" />
 	<deployment>
 
 		<exclusions>

@@ -5,15 +5,13 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.amexp.payment</groupId>
+		<groupId>com.example.payment</groupId>
 		<artifactId>payment-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.2-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	
 	<artifactId>payment-war</artifactId>
-	<groupId>com.amexp.payment</groupId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>Payment-War</name>
 	<description>Packages Payment-svc as an war</description>
@@ -30,7 +28,7 @@
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>com.amexp.payment</groupId>
+			<groupId>com.example.payment</groupId>
 			<artifactId>payment-svc</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>compile</scope>

@@ -5,16 +5,21 @@
 	<parent>
 		<groupId>com.example.payment</groupId>
 		<artifactId>payment-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.2-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	
 	<artifactId>integ-POJO</artifactId>
-	<groupId>com.example.payment</groupId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	
 	<name>Integration pojos used for coordinating work with backend services</name>
+	
+	<properties>
+		<hibernate.version>4.2.13.Final</hibernate.version>
+		<spring.version>4.2.0.RELEASE</spring.version>
+		<camelspring.version>2.15.2</camelspring.version>
+		<brms.version>6.0.3-redhat-6</brms.version>
+		<cxf.version>3.0.4</cxf.version>
+	</properties>
 	
 	<modules>
 		<module>emm-routing</module>

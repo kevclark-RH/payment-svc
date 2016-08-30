@@ -22,38 +22,55 @@
   <parent>
     <artifactId>integ-POJO</artifactId>
     <groupId>com.example.payment</groupId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
+	<relativePath>../pom.xml</relativePath>
   </parent>
 
   
 
-  <groupId>com.example.payment</groupId>
   <artifactId>cfe-validation</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>CFE validation integration package</name>
   <description>Shows how to use Camel and CDI in a WAR</description>
 
-  <properties>
-    <!-- Explicitly declaring the source encoding eliminates the following message: -->
-    <!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent! -->
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <version.compiler.plugin>2.3.1</version.compiler.plugin>
-    <version.maven-bundle-plugin>2.3.7</version.maven-bundle-plugin>
 
-    <!-- maven-compiler-plugin -->
-    <maven.compiler.target>1.7</maven.compiler.target>
-    <maven.compiler.source>1.7</maven.compiler.source>
 
-    <!-- the version of the BOM, defining all the dependency versions -->
-    <fabric8.bom.version>1.1.0.CR1</fabric8.bom.version>
-    <fabric.version>1.1.0.CR1</fabric.version>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-core</artifactId>
+      <version>${camelspring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-spring</artifactId>
+      <version>${camelspring.version}</version>
+    </dependency>
 
-    <!-- fabric8 deploy profile configuration -->
-    <fabric8.profile>quickstarts-camel.spring.java</fabric8.profile>
-  </properties>
+    <!-- logging -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.6</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      
+      <version>1.7.6</version>
+    </dependency>
+
+    <!-- testing -->
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-test-spring</artifactId>
+      <version>${camelspring.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
 
   <repositories>
     <repository>
@@ -124,50 +141,7 @@
     </pluginRepository>
   </pluginRepositories>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>io.fabric8.bom</groupId>
-        <artifactId>fabric8-bom</artifactId>
-        <version>${fabric8.bom.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-spring</artifactId>
-    </dependency>
-
-    <!-- logging -->
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-    </dependency>
-
-    <!-- testing -->
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-test-spring</artifactId>
-      <scope>test</scope>
-    </dependency>
-
-  </dependencies>
 
   <build>
     <defaultGoal>install</defaultGoal>
@@ -191,11 +165,7 @@
         this plugin will use the fabric.* properties to configure its behaviour
         see the Properties section here: http://fabric8.io/gitbook/mavenPlugin.html
       -->
-      <plugin>
-        <groupId>io.fabric8</groupId>
-        <artifactId>fabric8-maven-plugin</artifactId>
-        <version>${fabric.version}</version>
-      </plugin>
+
 
       <!-- allows the route to be ran via 'mvn camel:run' -->
       <plugin>

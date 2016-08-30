@@ -6,12 +6,10 @@
 	<parent>
 		<groupId>com.example.payment</groupId>
 		<artifactId>payment-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.2-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>payment-svc</artifactId>
-	<groupId>com.example.payment</groupId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>Payment-svc jar that holds camel context</name>
 	<licenses>
@@ -35,31 +33,31 @@
 			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.amexp.payment</groupId>
+			<groupId>com.example.payment</groupId>
 			<artifactId>cfe-enrollment</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.amexp.payment</groupId>
+			<groupId>com.example.payment</groupId>
 			<artifactId>cfe-validation</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.amexp.payment</groupId>
+			<groupId>com.example.payment</groupId>
 			<artifactId>emm-routing</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.amexp.payment</groupId>
+			<groupId>com.example.payment</groupId>
 			<artifactId>emm-validation</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.amexp.payment</groupId>
+			<groupId>com.example.payment</groupId>
 			<artifactId>subsystemX</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>compile</scope>
@@ -257,27 +255,27 @@
 			<version>${cxf.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.amexp.payment</groupId>
+			<groupId>com.example.payment</groupId>
 			<artifactId>cfe-enrollment</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.amexp.payment</groupId>
+			<groupId>com.example.payment</groupId>
 			<artifactId>cfe-validation</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.amexp.payment</groupId>
+			<groupId>com.example.payment</groupId>
 			<artifactId>emm-routing</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.amexp.payment</groupId>
+			<groupId>com.example.payment</groupId>
 			<artifactId>emm-validation</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.amexp.payment</groupId>
+			<groupId>com.example.payment</groupId>
 			<artifactId>subsystemX</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
@@ -739,6 +737,14 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-maven-plugin</artifactId>
+				<version>2.15.2</version>
+				<configuration>
+					<applicationContextUri>META-INF/spring/bundle-context.xml</applicationContextUri>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

@@ -29,13 +29,10 @@
 	<import resource="classpath:META-INF/spring/emm-route-context.xml" />
 	<import resource="classpath:META-INF/spring/emm-val-context.xml" />
 	<import resource="classpath:META-INF/spring/subsystemX-context.xml" />
+	
 	<bean id="InitBean" class="com.example.payment.service.InitBean" />
-	<bean class="org.apache.camel.processor.interceptor.Tracer" id="camelTracer">
-		<property name="traceExceptions" value="false" />
-		<property name="traceInterceptors" value="true" />
-		<property name="logLevel" value="ERROR" />
-		<property name="logName" value="com.mycompany.messages" />
-	</bean>
+	
+	<bean id="extractor" class="com.example.payment.tools.ExtractCustomer"/>
 	<bean class="org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider"
 		id="jsonProvider" />
 	<!-- REST ENPOINT IMPLEMENTATION -->
@@ -64,6 +61,7 @@
 		<!-- CXFRS server listener that forwards to appropriate Impl method -->
 		<route id="_route1">
 			<from id="_from1" uri="cxfrs:bean:customerRestService" />
+			<bean ref="extractor" method="extractCustomer"/>
 			<log message="message received ${body.getClass().toString()}" />
 		</route>
 		<route id="_route2">
