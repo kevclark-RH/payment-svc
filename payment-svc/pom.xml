@@ -4,13 +4,13 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.amexp.payment</groupId>
+		<groupId>com.example.payment</groupId>
 		<artifactId>payment-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<artifactId>payment-svc</artifactId>
-	<groupId>com.amexp.payment</groupId>
+	<groupId>com.example.payment</groupId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>Payment-svc jar that holds camel context</name>
@@ -24,9 +24,9 @@
 	<properties>
 		<hibernate.version>4.2.13.Final</hibernate.version>
 		<spring.version>4.2.0.RELEASE</spring.version>
-		<camelspring.version>2.17.0</camelspring.version>
+		<camelspring.version>2.15.2</camelspring.version>
 		<brms.version>6.0.3-redhat-6</brms.version>
-		<cxf.version>3.1.5</cxf.version>
+		<cxf.version>3.0.4</cxf.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -73,31 +73,31 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-core</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-servlet</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-test-spring</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-test</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -127,7 +127,7 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-mybatis</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
@@ -145,25 +145,19 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-bindy</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jackson</artifactId>
-			<version>2.17.0</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-cxf</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-http</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
@@ -181,13 +175,13 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jdbc</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-sql</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
@@ -223,19 +217,13 @@
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http-jetty</artifactId>
-			<version>3.1.5</version>
+			<version>3.0.4</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http</artifactId>
-			<version>3.1.5</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-core</artifactId>
-			<version>3.1.5</version>
+			<version>3.0.4</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
@@ -246,22 +234,27 @@
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-rs-client</artifactId>
-			<version>3.1.5</version>
+			<version>3.0.4</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
-			<version>3.1.5</version>
+			<version>3.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>3.0.4</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-rs-security-oauth</artifactId>
-			<version>3.1.5</version>
+			<version>3.0.4</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-bindings-soap</artifactId>
-			<version>3.1.5</version>
+			<version>3.0.4</version>
 		</dependency>
 		<dependency>
 			<groupId>com.amexp.payment</groupId>
@@ -302,79 +295,79 @@
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-core</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring</artifactId>
-			<version>2.17.0	</version>
+			<version>2.15.2	</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-servlet</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-http</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-cxf</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jaxb</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-beanio</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-test-spring</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-test</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jdbc</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-sql</artifactId>
-			<version>2.17.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-dozer</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-mybatis</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-bindy</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-jackson</artifactId>
-			<version>2.17.0</version>
+			<version>2.15.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-cxf</artifactId>
+			<version>2.15.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
@@ -652,11 +645,6 @@
 			<version>3.10-FINAL</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache-extras.camel-extra/camel-jboss6 -->
-		<dependency>
-			<groupId>org.apache-extras.camel-extra</groupId>
-			<artifactId>camel-jboss6</artifactId>
-			<version>2.15.0</version>
-		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>
