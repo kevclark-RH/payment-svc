@@ -1,4 +1,4 @@
-package com.amexp.payment.service;
+package com.example.payment.service;
 
 import java.io.File;
 import java.io.IOException;

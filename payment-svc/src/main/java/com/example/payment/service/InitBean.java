@@ -1,4 +1,4 @@
-package com.amexp.payment.service;
+package com.example.payment.service;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,7 +6,7 @@ import org.apache.camel.Body;
 import org.apache.camel.Exchange;
 import org.apache.log4j.Logger;
 
-import com.amexp.payment.service.ClassFinder.Visitor;
+import com.example.payment.service.ClassFinder.Visitor;
 
 public class InitBean {
 

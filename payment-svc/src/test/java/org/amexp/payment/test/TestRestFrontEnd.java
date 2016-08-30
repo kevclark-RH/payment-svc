@@ -19,16 +19,16 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 
-import com.amexp.payment.models.Customer;
+import com.example.payment.models.Customer;
 
 
 @PropertySource("classpath:payment_test.properties")
 public class TestRestFrontEnd extends CamelSpringTestSupport{
 
-	private Customer testCustomer;
+	public Customer testCustomer;
  
   
-    @Produce(uri = "cxfrs:bean:customerRestServiceClient") protected ProducerTemplate restFactory;
+    @Produce(uri = "direct:sendToRest") protected ProducerTemplate restFactory;
 	
     @Before
     public void setup() throws Exception {
@@ -40,10 +40,12 @@ public class TestRestFrontEnd extends CamelSpringTestSupport{
     	testCustomer.setFirstName("Andy");
     	testCustomer.setLastName("Reed");
     	testCustomer.setPhone("3847474789");
-    	testCustomer.setState("Arizona");
+    	testCustomer.setState("CA");
     	testCustomer.setRegion("SW");
     	testCustomer.setZip("44747");
-    	testCustomer.setCompanyName("AMEX");
+    	testCustomer.setCompanyName("REALgrillz");
+    	testCustomer.setStreetAddr("666 Rowdon Ln.");
+    	testCustomer.setCity("San Francisco");
     	
     	System.out.println("\n\nSTARTING TESTING\n\n");
     	
@@ -56,7 +58,9 @@ public class TestRestFrontEnd extends CamelSpringTestSupport{
 		
 		System.out.print("\n\n\n\nRUNNING testCamelRoute() \n\n\n\n\n");
 		Map<String, Object> headers =new HashMap<String, Object>();
-		headers.put("Content-Type", "application/json");
+		
+		/**
+		 
 		headers.put("Accept", "application/json");
 		headers.put("CamelHTTPMethod", "POST");
 		headers.put("CamelCxfRsUsingHttpAPI", true);
@@ -65,7 +69,8 @@ public class TestRestFrontEnd extends CamelSpringTestSupport{
 		
 		
 		restFactory.sendBodyAndHeaders(testCustomer, headers);
-
+		**/
+		restFactory.sendBody(testCustomer);
 
 		
 		//dummy assert

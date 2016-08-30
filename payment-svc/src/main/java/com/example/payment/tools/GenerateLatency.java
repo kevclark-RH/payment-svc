@@ -1,4 +1,4 @@
-package com.amexp.payment.tools;
+package com.example.payment.tools;
 
 import java.util.Random;
 

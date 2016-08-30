@@ -1,4 +1,4 @@
-package com.amexp.payment.models;
+package com.example.payment.models;
 
 import java.io.ByteArrayInputStream;
 

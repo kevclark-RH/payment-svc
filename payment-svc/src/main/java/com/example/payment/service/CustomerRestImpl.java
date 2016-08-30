@@ -1,13 +1,10 @@
-package com.amexp.payment.service;
+package com.example.payment.service;
 
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
 
-import com.amexp.payment.models.Customer;
-import com.sun.mdm.index.webservice.AddOrUpdateSystemRecord;
-import com.sun.mdm.index.webservice.AddSystemRecord;
-import com.sun.mdm.index.webservice.Search;
-import com.sun.mdm.index.webservice.UpdateSystemRecord;
+import com.example.payment.models.Customer;
+
 
 public class CustomerRestImpl implements CustomerRest{
 
