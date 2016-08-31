@@ -29,10 +29,8 @@
 	<import resource="classpath:META-INF/spring/emm-route-context.xml" />
 	<import resource="classpath:META-INF/spring/emm-val-context.xml" />
 	<import resource="classpath:META-INF/spring/subsystemX-context.xml" />
-	
 	<bean id="InitBean" class="com.example.payment.service.InitBean" />
-	
-	<bean id="extractor" class="com.example.payment.tools.ExtractCustomer"/>
+	<bean id="extractor" class="com.example.payment.tools.ExtractCustomer" />
 	<bean class="org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider"
 		id="jsonProvider" />
 	<!-- REST ENPOINT IMPLEMENTATION -->
@@ -56,13 +54,22 @@
 		<routeContextRef ref="cfeValContext" />
 		<routeContextRef ref="cfeEnrollContext" />
 		<routeContextRef ref="subsystemXContext" />
+		<dataFormats>
+			<bindy classType="com.example.payment.models.Customer" id="bindyDataFormat"
+				type="Csv" />
+		</dataFormats>
 		<!-- Direct endpoint that packages an exchange and sends it to the cxfrs 
 			client for http packet packaging -->
 		<!-- CXFRS server listener that forwards to appropriate Impl method -->
 		<route id="_route1">
 			<from id="_from1" uri="cxfrs:bean:customerRestService" />
-			<bean ref="extractor" method="extractCustomer"/>
+			<bean ref="extractor" method="extractCustomer" />
 			<log message="message received ${body.getClass().toString()}" />
+			<to uri="direct:emmValidation" />
+			<marshal ref="bindyDataFormat"/>
+			<log message="message marshalled to ${body}"/>
+			<unmarshal ref="bindyDataFormat"/>
+			<log message="message unmarshalled"/>
 		</route>
 		<route id="_route2">
 			<from uri="direct:sendToRest" />

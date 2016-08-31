@@ -1,4 +1,4 @@
-package org.amexp.payment.test;
+package com.example.payment.test;
 
 
 import static org.junit.Assert.assertTrue;
@@ -11,6 +11,7 @@ import org.apache.camel.EndpointInject;
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.Properties;
+import org.apache.camel.component.jms.JmsComponent;
 import org.apache.camel.test.spring.CamelSpringTestSupport;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +27,6 @@ import com.example.payment.models.Customer;
 public class TestRestFrontEnd extends CamelSpringTestSupport{
 
 	public Customer testCustomer;
- 
   
     @Produce(uri = "direct:sendToRest") protected ProducerTemplate restFactory;
 	
@@ -47,8 +47,7 @@ public class TestRestFrontEnd extends CamelSpringTestSupport{
     	testCustomer.setStreetAddr("666 Rowdon Ln.");
     	testCustomer.setCity("San Francisco");
     	
-    	System.out.println("\n\nSTARTING TESTING\n\n");
-    	
+    	System.out.println("\n\nSTARTING TESTING\n\n");        
     	
     }
     
@@ -87,7 +86,7 @@ public class TestRestFrontEnd extends CamelSpringTestSupport{
 	    ConfigurableEnvironment env = ctx.getEnvironment();
 	    env.setActiveProfiles("test");
 	    ctx.refresh();
-		
+	    
 		return ctx;
 	
 	}
