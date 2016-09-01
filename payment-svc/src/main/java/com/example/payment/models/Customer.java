@@ -6,6 +6,10 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.camel.Body;
 import org.apache.camel.Exchange;
@@ -13,27 +17,40 @@ import org.apache.camel.dataformat.bindy.annotation.CsvRecord;
 import org.apache.camel.dataformat.bindy.annotation.DataField;
 
 @CsvRecord(separator = ",")
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Customer {
 
-    @DataField(pos = 1)
+    @DataField(pos = 1)	
+	@XmlAttribute
     private String companyName;
-    @DataField(pos = 2)
+    @DataField(pos = 2)	
+	@XmlAttribute
     private String region;
-    @DataField(pos = 3)
+    @DataField(pos = 3)	
+	@XmlAttribute
     private boolean active;
-    @DataField(pos = 4)
+    @DataField(pos = 4)	
+	@XmlAttribute
     private String firstName;
-    @DataField(pos = 5)
+    @DataField(pos = 5)	
+	@XmlAttribute
     private String lastName;
-    @DataField(pos = 6)
+    @DataField(pos = 6)	
+	@XmlAttribute
     private String streetAddr;
-    @DataField(pos = 7)
+    @DataField(pos = 7)	
+	@XmlAttribute
     private String city;
-    @DataField(pos = 8)
+    @DataField(pos = 8)	
+	@XmlAttribute
     private String state;
-    @DataField(pos = 9)
+    @DataField(pos = 9)	
+	@XmlAttribute
     private String zip;
-    @DataField(pos = 10)
+    @DataField(pos = 10)	
+	@XmlAttribute
     private String phone;
 
     private static JAXBContext jContext;

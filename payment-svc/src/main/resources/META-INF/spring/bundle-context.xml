@@ -29,6 +29,9 @@
 	<import resource="classpath:META-INF/spring/emm-route-context.xml" />
 	<import resource="classpath:META-INF/spring/emm-val-context.xml" />
 	<import resource="classpath:META-INF/spring/subsystemX-context.xml" />
+	<context:component-scan base-package="com.example.payment"></context:component-scan>
+	<bean id="jbossResolver"
+		class="org.apacheextras.camel.jboss.JBossPackageScanClassResolver" />
 	<bean id="InitBean" class="com.example.payment.service.InitBean" />
 	<bean id="extractor" class="com.example.payment.tools.ExtractCustomer" />
 	<bean class="org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider"
@@ -47,17 +50,33 @@
 			<ref bean="jsonProvider" />
 		</cxf:providers>
 	</cxf:rsClient>
+	<bean class="com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider"
+		id="fasterProvider" />
+	<!-- REST ENPOINT IMPLEMENTATION -->
+	<cxf:rsServer address="http://localhost:9120/test" id="customerTestService"
+		loggingFeatureEnabled="true" serviceClass="com.example.payment.service.CustomerRestImpl">
+		<cxf:providers>
+			<ref bean="fasterProvider" />
+		</cxf:providers>
+	</cxf:rsServer>
+	<cxf:rsClient address="http://localhost:9120/test" id="customerTestServiceClient"
+		loggingFeatureEnabled="true" serviceClass="com.example.payment.service.CustomerRest">
+		<cxf:providers>
+			<ref bean="fasterProvider" />
+		</cxf:providers>
+	</cxf:rsClient>
+	
+	<bean id="marshaller" class="com.example.payment.routing.JaxbMarshaller" />
+	
 	<camelContext id="camelContext-20bfdf3f-bb50-4ba3-b48d-7299441206a3"
 		trace="true" xmlns="http://camel.apache.org/schema/spring">
+		<routeBuilder ref="marshaller" />
 		<routeContextRef ref="emmRoutingContext" />
 		<routeContextRef ref="emmValContext" />
 		<routeContextRef ref="cfeValContext" />
 		<routeContextRef ref="cfeEnrollContext" />
 		<routeContextRef ref="subsystemXContext" />
-		<dataFormats>
-			<bindy classType="com.example.payment.models.Customer" id="bindyDataFormat"
-				type="Csv" />
-		</dataFormats>
+
 		<!-- Direct endpoint that packages an exchange and sends it to the cxfrs 
 			client for http packet packaging -->
 		<!-- CXFRS server listener that forwards to appropriate Impl method -->
@@ -65,11 +84,14 @@
 			<from id="_from1" uri="cxfrs:bean:customerRestService" />
 			<bean ref="extractor" method="extractCustomer" />
 			<log message="message received ${body.getClass().toString()}" />
-			<to uri="direct:emmValidation" />
-			<marshal ref="bindyDataFormat"/>
-			<log message="message marshalled to ${body}"/>
-			<unmarshal ref="bindyDataFormat"/>
-			<log message="message unmarshalled"/>
+			<to uri="direct:jaxbMarshaller" />
+			<log message="message marshalled to ${body}" />
+			<to uri="cxfrs:bean:customerTestServiceClient" />
+		</route>
+		<route id="_route4">
+			<from uri="cxfrs:bean:customerTestService" />
+			<bean ref="extractor" method="extractCustomer" />
+			<log message="different provider received message" />
 		</route>
 		<route id="_route2">
 			<from uri="direct:sendToRest" />

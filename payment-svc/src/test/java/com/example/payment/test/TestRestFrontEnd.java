@@ -11,7 +11,6 @@ import org.apache.camel.EndpointInject;
 import org.apache.camel.Produce;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.Properties;
-import org.apache.camel.component.jms.JmsComponent;
 import org.apache.camel.test.spring.CamelSpringTestSupport;
 import org.junit.Before;
 import org.junit.Test;

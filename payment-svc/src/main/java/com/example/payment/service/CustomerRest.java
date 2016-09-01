@@ -11,6 +11,6 @@ import com.example.payment.models.Customer;
 public interface CustomerRest {
 
 	 @POST @Path("/addCustomer") @Consumes("application/json") @Produces("application/json")
-	String addCustomer(Customer toAdd);
+	Customer addCustomer(Customer toAdd);
 
 }
