@@ -69,13 +69,13 @@
 	<bean id="marshaller" class="com.example.payment.routing.JaxbMarshaller" />
 	
 	<camelContext id="camelContext-20bfdf3f-bb50-4ba3-b48d-7299441206a3"
-		trace="true" xmlns="http://camel.apache.org/schema/spring">
+		trace="false" xmlns="http://camel.apache.org/schema/spring">
 		<routeBuilder ref="marshaller" />
-		<routeContextRef ref="emmRoutingContext" />
+		<!-- <routeContextRef ref="emmRoutingContext" />
 		<routeContextRef ref="emmValContext" />
 		<routeContextRef ref="cfeValContext" />
 		<routeContextRef ref="cfeEnrollContext" />
-		<routeContextRef ref="subsystemXContext" />
+		<routeContextRef ref="subsystemXContext" /> -->
 
 		<!-- Direct endpoint that packages an exchange and sends it to the cxfrs 
 			client for http packet packaging -->
@@ -85,6 +85,7 @@
 			<bean ref="extractor" method="extractCustomer" />
 			<log message="message received ${body.getClass().toString()}" />
 			<to uri="direct:jaxbMarshaller" />
+			<inOnly uri="vm:cfeVal"/>
 			<log message="message marshalled to ${body}" />
 			<to uri="cxfrs:bean:customerTestServiceClient" />
 		</route>

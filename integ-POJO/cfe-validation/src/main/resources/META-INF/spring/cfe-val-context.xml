@@ -5,17 +5,13 @@
 	xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
-
-
-<routeContext id="cfeValContext" xmlns="http://camel.apache.org/schema/spring" >
+	<camelContext id="cfeValContext" xmlns="http://camel.apache.org/schema/spring">
 		<!-- here is a sample which processes the input files (leaving them in 
 			place - see the 'noop' flag) then performs content based routing on the message 
 			using XPath -->
-			
 		<route id="cfe_validation_route">
-			<from uri="direct:cfeValidation" />
+			<from uri="direct:cfeVal" />
 			<log message="cfe validation direct endpoint called" />
 		</route>
-		
-	</routeContext>
+	</camelContext>
 </beans>
